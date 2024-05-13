@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">LOGO DO WEBSITE</h1>
+        <ul class="navbar">
+            <li> <a href="index.html">Home</a> </li>
+            <li> | </li>
+            <li> <a href="sobre.html">Sobre</a> </li>
+            <li> | </li>
+            <li class="atual"> <a href="cadastro.html">Cadastro</a> </li>
+            <li> | </li>
+            <li> <a href="login.html">Login</a> </li>
+        </ul>
+    </div>
+    <div class="background">
+        <div class="caixa">
+            <div class="formulario">
+                <h2> <u>Cadastro</u> </h2>
+                <span>Nome:</span>
+                <input type="text" id="input_nome"> <br>
+                <span>E-mail:</span> 
+                <input type="text" id="input_email"> <br>
+                <span>Senha:</span> 
+                <input type="text" id="input_senha"> <br>
+                <span>Confirme sua senha:</span> 
+                <input type="text" id="input_conf_senha"> <br>
+                <button class="btn_cadastro" onclick="cadastrar()">Cadastrar</button> <br>
+                <span>Já possui uma conta? Faça <a href="login.html">login</a> </span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h1 class="title">LOGO DO WEBSITE</h1>
+        <div class="contato">
+            <h2>Entre em contato:</h2>
+            <div class="lista_contatos">
+                <h3>&phone; (11) 96574-9168</h3>
+                <h3>&#9993; bruno.ytakahashi@sptech.school</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        alert("Cadastro conclído")
+    }
+</script>

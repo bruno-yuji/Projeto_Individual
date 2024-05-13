@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Home</title>
+    <title>Login</title>
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
     <div class="header">
         <h1 class="title">LOGO DO WEBSITE</h1>
         <ul class="navbar">
-            <li class="atual"> <a href="index.html">Home</a> </li>
+            <li> <a href="index.html">Home</a> </li>
             <li> | </li>
             <li> <a href="sobre.html">Sobre</a> </li>
             <li> | </li>
             <li> <a href="cadastro.html">Cadastro</a> </li>
             <li> | </li>
-            <li> <a href="login.html">Login</a> </li>
+            <li class="atual"> <a href="login.html">Login</a> </li>
         </ul>
     </div>
     <div class="background">
-        <div class="content">
-            <u> <h1>Venha conhecer mais sobre livros de Star Wars</h1> </u> 
-            <br>
-            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis magni molestiae nemo velit, labore necessitatibus neque mollitia esse totam alias veritatis reprehenderit omnis reiciendis repellat quam blanditiis nihil consequatur magnam!</h2>
+        <div class="caixa">
+            <div class="formulario">
+                <h2> <u>Login</u> </h2>
+                <span>E-mail:</span> 
+                <input type="text" id="input_email"> <br>
+                <span>Senha:</span> 
+                <input type="text" id="input_conf_senha"> <br>
+                <button class="btn_login" onclick="logar()">Login</button> <br>
+                <span>Não possui uma conta? Faça seu <a href="cadastro.html">cadastro</a> </span>
+            </div>
         </div>
     </div>
     <div class="footer">
@@ -38,3 +44,9 @@
     </div>
 </body>
 </html>
+
+<script>
+    function cadastrar() {
+        alert("Cadastro conclído")
+    }
+</script>
