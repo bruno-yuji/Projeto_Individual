@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="./CSS/style.css">
+    <script src="./js/sessao.js"></script>
 </head>
 <body>
     <div class="header">
@@ -24,13 +25,17 @@
             <div class="formulario">
                 <h2> <u>Cadastro</u> </h2>
                 <span>Nome:</span>
-                <input type="text" id="input_nome"> <br>
+                <input type="text" id="input_nome">
+                <div class="error" id="div_erro_nome"></div> <br>
                 <span>E-mail:</span> 
-                <input type="text" id="input_email"> <br>
+                <input type="text" id="input_email">
+                <div class="error" id="div_erro_email"></div> <br>
                 <span>Senha:</span> 
-                <input type="text" id="input_senha"> <br>
+                <input type="password" id="input_senha">
+                <div class="error" id="div_erro_senha"></div> <br>
                 <span>Confirme sua senha:</span> 
-                <input type="text" id="input_conf_senha"> <br>
+                <input type="password" id="input_conf_senha">
+                <div class="error" id="div_erro_confirmar"></div> <br>
                 <button class="btn_cadastro" onclick="cadastrar()">Cadastrar</button> <br>
                 <span>Já possui uma conta? Faça <a href="login.html">login</a> </span>
             </div>
@@ -51,6 +56,64 @@
 
 <script>
     function cadastrar() {
-        alert("Cadastro conclído")
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
+        var conf_senha = input_conf_senha.value;
+
+        var valido = 0;
+
+        if (
+            nome == "" ||
+            email == "" ||
+            senha == "" ||
+            conf_senha == ""
+        ) {
+            alert("É necessário preencher todos os campos!");
+        } else {
+            if (isNaN(Number(nome)) && nome.length >= 1) {
+                div_erro_nome.innerHTML = "";
+                valido++;
+            } else {
+                div_erro_nome.innerHTML = "Nome inválido!";
+            }
+    
+            if (email.indexOf("@") >= 0 && email.indexOf(".") >= 0) {
+                div_erro_email.innerHTML = "";
+                valido++;
+            } else {
+                div_erro_email.innerHTML = "E-mail inválido!";
+            }
+    
+            if (
+            (senha.indexOf('@') < 0 && 
+            senha.indexOf('$') < 0 && 
+            senha.indexOf('#') < 0 && 
+            senha.indexOf('*') < 0 && 
+            senha.indexOf('-') < 0 && 
+            senha.indexOf('%') < 0 && 
+            senha.indexOf('/') < 0 && 
+            senha.indexOf('_') < 0 && 
+            senha.indexOf('&') < 0 &&
+            senha.indexOf('!') < 0 &&
+            senha.indexOf('?') < 0) || 
+            senha.length < 8
+          ) { 
+            div_erro_senha.innerHTML = `Senha Fraca!`;
+          } else {
+            div_erro_senha.innerHTML = "";
+            valido++;
+            if (senha == conf_senha) {
+              div_erro_confirmar.innerHTML = "";
+              valido++;
+            } else {
+              div_erro_confirmar.innerHTML = `Senhas não se correspondem!`;
+            }
+          }
+        }
+
+        if (valido == 4) {
+            alert("Cadastro concluído!");
+        }
     }
 </script>
