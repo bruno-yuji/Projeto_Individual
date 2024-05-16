@@ -1,106 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Login</title>
-
+    <title>Login</title>
+    <link rel="stylesheet" href="./Estilização/style.css">
     <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
-
 <body>
-
-    <!--Header-->
-
     <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
+        <h1 class="title">LOGO DO WEBSITE</h1>
+        <ul class="navbar">
+            <li> <a href="index.html">Home</a> </li>
+            <li> | </li>
+            <li> <a href="sobre.html">Sobre</a> </li>
+            <li> | </li>
+            <li> <a href="cadastro.html">Cadastro</a> </li>
+            <li> | </li>
+            <li class="atual"> <a href="login.html">Login</a> </li>
+        </ul>
     </div>
-
-
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
-                </div>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-
-                <div id="div_erros_login"></div>
+    <div class="background">
+        <div class="caixa">
+            <div class="formulario">
+                <h2> <u>Login</u> </h2>
+                <span>E-mail:</span> 
+                <input type="text" id="input_email"> <br>
+                <span>Senha:</span> 
+                <input type="password" id="input_senha"> <br>
+                <button class="btn_login" onclick="entrar()">Login</button> <br>
+                <span>Não possui uma conta? Faça seu <a href="cadastro.html">cadastro</a> </span>
             </div>
         </div>
     </div>
-
-    <!--footer inicio-->
     <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
+        <h1 class="title">LOGO DO WEBSITE</h1>
+        <div class="contato">
+            <h2>Entre em contato:</h2>
+            <div class="lista_contatos">
+                <h3>&phone; (11) 96574-9168</h3>
+                <h3>&#9993; bruno.ytakahashi@sptech.school</h3>
+            </div>
         </div>
     </div>
-    <!--footer fim-->
-
 </body>
-
 </html>
 
 <script>
-
-
     function entrar() {
-        aguardar();
+        //aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            alert("Preencha todos os campos!");
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -127,7 +82,7 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
@@ -141,7 +96,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    //finalizarAguardar(texto);
                 });
             }
 
@@ -152,8 +107,7 @@
         return false;
     }
 
-    function sumirMensagem() {
+    /*function sumirMensagem() {
         cardErro.style.display = "none"
-    }
-
+    }*/
 </script>
