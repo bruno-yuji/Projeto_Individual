@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rankings</title>
+    <link rel="stylesheet" href="./Estilização/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">LOGO DO WEBSITE</h1>
+        <ul class="navbar">
+            <li> <a href="livros.html">Livros</a> </li>
+            <li> | </li>
+            <li> <a href="quiz.html">Quiz</a> </li>
+            <li> | </li>
+            <li class="atual"> <a href="rankings.html">Rankings</a> </li>
+            <li> | </li>
+            <li> <a href="#">Sair</a> </li>
+        </ul>
+    </div>
+    <div class="background centro">
+        <div>
+            <h1 class="texto_dashboard">Livros favoritados por usuários</h1>
+            <canvas id="myChart" style="position: relative; height:65vh; width:80vw"></canvas>
+        </div>
+        <div>
+            <h1 class="texto_dashboard">Seus acertos no Quiz</h1>
+            <canvas id="myChart2" style="position: relative; height:65vh; width:80vw"></canvas>
+        </div>    
+    </div>
+    <div class="footer">
+        <h1 class="title">LOGO DO WEBSITE</h1>
+        <div class="contato">
+            <h2>Entre em contato:</h2>
+            <div class="lista_contatos">
+                <h3>&phone; (11) 96574-9168</h3>
+                <h3>&#9993; bruno.ytakahashi@sptech.school</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    const ctx2 = document.getElementById('myChart');
+  
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Herdeiro do Império', 'Ascensão da Força Sombria', 'O Último Comando', 'Caminho de Destruição', 'Regra de Dois', 'Dinastia do Mal', 'A Ascensão e a Queda de Darth Vader', 'A Origem e a Lenda de Obi Wan Kenobi', 'A Vida de Luke Skywalker', 'O Livro dos Sith', 'O Caminho Jedi', 'Código do Caçador de Recompensas', 'Manual do Império', 'Troopers da Morte', 'Sombras do Império'],
+        datasets: [{
+          label: 'Quantidade de usuários que favoritaram',
+          data: [22, 24, 27, 23, 20, 18, 10, 13, 31, 13, 14, 18, 8, 23, 10],
+          backgroundColor: '#e53b3b',
+          borderColor: '#e53b3b'
+        }]
+      },
+      options: {
+        plugins: {  
+        legend: {
+            labels: {
+            color: "white",
+            font: {
+                size: 18
+            }
+            }
+        }
+        },
+        scales: {
+        y: {
+            ticks: {
+            color: "white",
+            font: {
+                size: 18,
+            },
+            stepSize: 1,
+            beginAtZero: true
+            }
+        },
+        x: {
+            ticks: {
+            color: "white",
+            font: {
+                size: 14
+            },
+            stepSize: 1,
+            beginAtZero: true
+            }
+        }
+        }
+    }
+    });
+</script>
+
+<script>
+    const ctx = document.getElementById('myChart2');
+  
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['14-05-2024', '15-05-2024', '16-05-2024', '17-05-2024', '18-05-2024', '19-05-2024'],
+        datasets: [{
+          label: 'Acertos',
+          data: [4, 6, 5, 8, 8, 10],
+          borderWidth: 3,
+          backgroundColor: '#2196F3',
+          borderColor: '#2196F3'
+        }]
+      },
+      options: {
+        plugins: {  
+        legend: {
+            labels: {
+            color: "white",
+            font: {
+                size: 18
+            }
+            }
+        }
+        },
+        scales: {
+        y: {
+            beginAtZero: true,
+            ticks: {
+            min: 0,
+            color: "white",
+            font: {
+                size: 18,
+            },
+            stepSize: 1,
+            }
+        },
+        x: {
+            ticks: {
+            min: 0,
+            color: "white",
+            font: {
+                size: 14
+            },
+            stepSize: 1,
+            }
+        }
+        }
+    }
+    });
+</script>
