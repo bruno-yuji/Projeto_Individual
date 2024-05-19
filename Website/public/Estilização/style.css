@@ -5,7 +5,7 @@ body {
 
 .header {
     display: flex;
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(36, 36, 36);
     flex-direction: row;
     justify-content: space-between;
     padding-left: 1%;
@@ -97,7 +97,7 @@ body {
     color: white;
 }
 
-button {
+.botao {
     background-color: white;
     border-radius: 40%;
     text-decoration: underline;
@@ -161,7 +161,7 @@ button {
     width: 45rem;
     margin: 2rem;
     padding: 1rem;
-    border: 0.2rem solid rgb(37, 38, 101);
+    border: 0.15rem solid rgb(40, 42, 109);
     border-radius: 10px;
 }
 
@@ -193,3 +193,38 @@ button {
     height: 10rem;
     border: 0.5rem solid black;
 }
+
+#div_texto_quiz {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titulo {
+    text-decoration: underline;
+    font-size: 5rem;
+    color: aliceblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.texto_quiz {
+    color: aliceblue;
+    text-align: center;
+}
+
+.botao2 {
+    align-self: center;
+    border: 0.2rem solid rgb(249, 186, 104);
+    border-radius: 50px;
+    width: 15rem;
+    height: 5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.botao2:hover {
+    transition: transform 0.2s;
+    transform: scale(105%, 105%);
+  }
