@@ -99,7 +99,7 @@ body {
 
 .botao {
     background-color: white;
-    border-radius: 40%;
+    border-radius: 15px;
     text-decoration: underline;
     font-size: large;
     width: 10rem;
@@ -228,3 +228,36 @@ body {
     transition: transform 0.2s;
     transform: scale(105%, 105%);
   }
+
+.questao {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ebcb7b;
+    border: 0.3rem solid rgb(255, 168, 28);
+    border-radius: 20px;
+    padding: 1rem;
+    width: 45rem;
+}
+
+.questao img {
+    height: 10rem;
+}
+
+.alternativas {
+    width: 35rem;
+    justify-items: flex-start;
+    font-size: 1.3rem;
+}
+
+.btn_quiz {
+    border: 0.15rem solid rgb(255, 255, 255);
+    border-radius: 10px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
