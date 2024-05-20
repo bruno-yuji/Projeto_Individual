@@ -47,7 +47,10 @@
                 <input type="radio" name="Alternativas_2"> C. Em uma estação espacial. <br>
                 <input type="radio" name="Alternativas_2" value="correto"> D. Em um Star Destroyer abandonado. <br>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
+            <div class="botoes_quiz">
+                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                <button class="btn_quiz" onclick="passar()">Próximo</button>
+            </div>
         </div>
         <div id="questao3" class="questao">
             <h1>3ª Pergunta:</h1>
@@ -59,7 +62,10 @@
                 <input type="radio" name="Alternativas_3"> C. Darth Bane: Dinastia do Mal. <br>
                 <input type="radio" name="Alternativas_3"> D. O Último Comando. <br>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
+            <div class="botoes_quiz">
+                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                <button class="btn_quiz" onclick="passar()">Próximo</button>
+            </div>
         </div>
         <div id="questao4" class="questao">
             <h1>4ª Pergunta:</h1>
@@ -71,7 +77,10 @@
                 <input type="radio" name="Alternativas_4"> C. Leviathan. <br>
                 <input type="radio" name="Alternativas_4" value="correto"> D. Ysalamir. <br>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
+            <div class="botoes_quiz">
+                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                <button class="btn_quiz" onclick="passar()">Próximo</button>
+            </div>
         </div>
         <div id="questao5" class="questao">
             <h1>5ª Pergunta:</h1>
@@ -83,7 +92,10 @@
                 <input type="radio" name="Alternativas_5" value="correto"> C. Grão-Almirante. <br>
                 <input type="radio" name="Alternativas_5"> D. Líder da Inquisição. <br>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
+            <div class="botoes_quiz">
+                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                <button class="btn_quiz" onclick="passar()">Próximo</button>
+            </div>
         </div>
         <div id="questao6" class="questao">
             <h1>6ª Pergunta:</h1>
@@ -95,7 +107,10 @@
                 <input type="radio" name="Alternativas_6"> C. Aproximadamente 3 mil anos antes dos filmes originais. <br>
                 <input type="radio" name="Alternativas_6"  value="correto"> D. Alguns anos após Darth Bane: Dinastia do Mal. <br>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
+            <div class="botoes_quiz">
+                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                <button class="btn_quiz" onclick="passar()">Próximo</button>
+            </div>
         </div>
         <div id="questao7" class="questao">
             <h1>7ª Pergunta:</h1>
@@ -107,7 +122,10 @@
                 <input type="radio" name="Alternativas_7"> C. Apresentam curiosidades compiladas por diversos autores. <br>
                 <input type="radio" name="Alternativas_7"> D. Contam histórias paralelas, não relacionadas com a saga principal. <br>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
+            <div class="botoes_quiz">
+                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                <button class="btn_quiz" onclick="passar()">Próximo</button>
+            </div>
         </div>
         <div id="questao8" class="questao">
             <h1>8ª Pergunta:</h1>
@@ -119,7 +137,10 @@
                 <input type="radio" name="Alternativas_8"> C. Restaurar a influência de seu clã. <br>
                 <input type="radio" name="Alternativas_8"> D. Destruir a rebelião. <br>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
+            <div class="botoes_quiz">
+                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                <button class="btn_quiz" onclick="passar()">Próximo</button>
+            </div>
         </div>
         <div id="questao9" class="questao">
             <h1>9ª Pergunta:</h1>
@@ -131,7 +152,10 @@
                 <input type="radio" name="Alternativas_9"> C. Durante a Escuridão de 100 anos. <br>
                 <input type="radio" name="Alternativas_9"> D. Segunda metade da Alta República. <br>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
+            <div class="botoes_quiz">
+                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                <button class="btn_quiz" onclick="passar()">Próximo</button>
+            </div>
         </div>
         <div id="questao10" class="questao">
             <h1>10ª Pergunta:</h1>
@@ -143,6 +167,7 @@
                 <input type="radio" name="Alternativas_10" value="correto"> C. Joruus C'Baoth. <br>
                 <input type="radio" name="Alternativas_10"> D. Talon Karrde. <br>
             </div>
+            <button class="btn_quiz" onclick="voltar()">Anterior</button>
             <button class="btn_quiz" onclick="finalizar()">Finalizar</button>
         </div>
         <div class="questao" id="div_resultado"></div>
@@ -178,9 +203,18 @@
         proxima_questao.style.display = 'flex';
     }
 
+    function voltar() {
+        var questao_atual = document.getElementById(`questao${num_atual}`);
+        questao_atual.style.display = 'none';
+        num_atual--;
+        var questao_anterior = document.getElementById(`questao${num_atual}`);
+        questao_anterior.style.display = 'flex';
+    }
+
     function finalizar() {
         questao10.style.display = 'none';
         var alternativa = '';
+        var cor = '';
 
         for (var cont = 1; cont <= 10; cont++) {
             alternativa = document.getElementsByName(`Alternativas_${cont}`);
@@ -190,12 +224,19 @@
                 }
             }
         }
+        if (acertos <= 4) {
+            cor = 'red';
+        } else if (acertos <= 7) {
+            cor = '#ea980c';
+        } else {
+            cor = 'green';
+        }
         div_resultado.style.display = 'flex';
-        div_resultado.innerHTML = `<h1>Resultado: <h1> <h2>Você acertou ${acertos} questões<h2>
-            <button class="btn_quiz" onclick="voltar()">Voltar</button>`;
+        div_resultado.innerHTML = `<h1>Resultado: <h1> <h2 style="color: ${cor};">Você acertou ${acertos} questões<h2>
+            <button class="btn_quiz" onclick="retornar()">Retornar para página do Quiz</button>`;
     }
     
-    function voltar() {
+    function retornar() {
         for (var cont = 1; cont <= 10; cont++) {
             alternativa = document.getElementsByName(`Alternativas_${cont}`);
             for (var index = 0; index < alternativa.length; index++) {

@@ -243,6 +243,13 @@ body {
     width: 45rem;
 }
 
+.botoes_quiz {
+    width: 20rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .questao img {
     height: 10rem;
 }
@@ -269,3 +276,54 @@ body {
     text-decoration: underline;
     margin-top: 5rem;
 }
+
+.card_resenha {
+    display: flex;
+    justify-content: center;
+    margin-left: 4rem;
+    background-color: #ddbb65;
+    width: 70rem;
+    height: fit-content;
+    padding: 3rem;
+}
+
+.conteudo_resenha {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.conteudo_resenha h1 {
+    text-decoration: underline;
+}
+
+.conteudo_resenha p {
+    align-self: center;
+    text-align: justify;
+    width: 50rem;
+    font-size: 1.5rem;
+}
+
+.imagem_resenha {
+    width: 30rem;
+    align-self: center;
+    margin-bottom: 2.5rem;
+    border: 0.3rem solid black;
+}
+
+.btn_voltar {
+    margin-bottom: 1rem;
+    margin-top: -2rem;
+    margin-left: -2rem;
+    align-self: flex-start;
+    background-color: #fadd92;
+    border: 0.15rem solid white;
+    border-radius: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.btn_voltar:hover {
+    transition: transform 0.2s;
+    transform: scale(105%, 105%);
+  }

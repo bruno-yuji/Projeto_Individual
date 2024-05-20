@@ -24,34 +24,40 @@
             <img class="legends" src="./Imagens/Legends_logo.png">
         </div>
         <div class="resenhas">
-            <div class="card">
+            <div id="Trilogia_Thrawn" onclick="ver_livro(this.id)" class="card">
                 <div class="conteudo">
                     <img class="livro" src="./Imagens/Trilogia_Thrawn.jpg">
                     <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis eos sapiente vitae similique nemo atque optio unde officiis enim animi magni, reiciendis nostrum? Ratione iste nulla rerum laborum mollitia molestiae.</span>  
                 </div>
             </div>
-            <div class="card direita">
+            <div id="Trilogia_Darth_Bane" onclick="ver_livro(this.id)" class="card direita">
                 <div class="conteudo">
                     <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis eos sapiente vitae similique nemo atque optio unde officiis enim animi magni, reiciendis nostrum? Ratione iste nulla rerum laborum mollitia molestiae.</span>  
                     <img class="livro" src="./Imagens/Trilogia_Darth_Bane.jpg">
                 </div>
             </div>
-            <div class="card">
+            <div id="Coleção_Legends" onclick="ver_livro(this.id)" class="card">
                 <div class="conteudo">
                     <img class="livro" src="./Imagens/Coleção_Legends.png">
                     <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis eos sapiente vitae similique nemo atque optio unde officiis enim animi magni, reiciendis nostrum? Ratione iste nulla rerum laborum mollitia molestiae.</span>  
                 </div>
             </div>
-            <div class="card direita">
+            <div id="Secrets_of_the_Galaxy" onclick="ver_livro(this.id)" class="card direita">
                 <div class="conteudo">
                     <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis eos sapiente vitae similique nemo atque optio unde officiis enim animi magni, reiciendis nostrum? Ratione iste nulla rerum laborum mollitia molestiae.</span>  
                     <img class="livro" src="./Imagens/Secrets_of_the_Galaxy.png">
                 </div>
             </div>
-            <div class="card">
+            <div id="Troopers_da_Morte" onclick="ver_livro(this.id)" class="card">
                 <div class="conteudo">
                     <img class="livro" src="./Imagens/Troopers_da_Morte.jpg">
                     <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis eos sapiente vitae similique nemo atque optio unde officiis enim animi magni, reiciendis nostrum? Ratione iste nulla rerum laborum mollitia molestiae.</span>  
+                </div>
+            </div>
+            <div id="Sombras_do_Império" onclick="ver_livro(this.id)" class="card direita">
+                <div class="conteudo">
+                    <span class="texto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis eos sapiente vitae similique nemo atque optio unde officiis enim animi magni, reiciendis nostrum? Ratione iste nulla rerum laborum mollitia molestiae.</span>  
+                    <img class="livro" src="./Imagens/Sombras_do_Império.jpg">
                 </div>
             </div>
         </div>
@@ -68,3 +74,9 @@
     </div>
 </body>
 </html>
+
+<script>
+    function ver_livro(id) {
+        window.location = `Resenhas/resenha_${id}.html`;
+    }
+</script>
