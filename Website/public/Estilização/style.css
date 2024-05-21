@@ -326,4 +326,56 @@ body {
 .btn_voltar:hover {
     transition: transform 0.2s;
     transform: scale(105%, 105%);
-  }
+}
+
+.tela_perfil {
+    width: 60rem;
+    height: fit-content;
+    margin-left: 4rem;
+    background-color: rgb(66, 64, 64);
+    border: 0.3rem solid white;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 3rem;
+    color: white;
+}
+
+.tela_perfil h1 {
+    align-items: center;
+}
+
+.perfil {
+    opacity: 1.0;
+    border-radius: 100%;
+    width: 13rem;
+    border: 0.2rem solid black;
+}
+
+.imagens_perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagens_perfil button {
+    margin: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: 0.2rem solid black;
+    border-radius: 10px;
+}
+
+#imagens img{
+    border-radius: 100%;
+    width: 8rem;
+    border: 0.2rem solid black;
+    cursor: pointer;
+}
+
+.lista_imagens {
+    width: 26rem;
+    display: none;
+}

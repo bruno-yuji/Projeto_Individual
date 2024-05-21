@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="./Estilização/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">LOGO DO WEBSITE</h1>
+        <ul class="navbar">
+            <li> <a href="livros.html">Livros</a> </li>
+            <li> | </li>
+            <li> <a href="quiz.html">Quiz</a> </li>
+            <li> | </li>
+            <li> <a href="rankings.html">Rankings</a> </li>
+            <li> | </li>
+            <li class="atual"> <a href="perfil.html">Perfil</a> </li>
+            <li> | </li>
+            <li> <a href="index.html">Sair</a> </li>
+        </ul>
+    </div>
+    <div class="background centro">
+        <div class="tela_perfil">
+            <div class="imagens_perfil">
+                <img id="img_perfil" src="Imagens/Darth_Revan.png" class="perfil">
+                <button onclick="mostrar_imagens()">Trocar foto de perfil</button>
+                <div class="lista_imagens" id="imagens">
+                    <img onclick="trocar(this.id)" id="Luke" src="Imagens/Luke.png">
+                    <img onclick="trocar(this.id)" id="Boba_Fett" src="Imagens/Boba_Fett.png">
+                    <img onclick="trocar(this.id)" id="C3PO" src="Imagens/C3PO.png">
+                    <img onclick="trocar(this.id)" id="Thrawn" src="Imagens/Thrawn.png">
+                    <img onclick="trocar(this.id)" id="Darth_Vader" src="Imagens/Darth_Vader.png">
+                    <img onclick="trocar(this.id)" id="Joruus_C'Baoth" src="Imagens/Joruus_C'Baoth.png">
+                    <img onclick="trocar(this.id)" id="Leia" src="Imagens/Leia.png">
+                    <img onclick="trocar(this.id)" id="Darth_Revan" src="Imagens/Darth_Revan.png">
+                    <img onclick="trocar(this.id)" id="Yoda" src="Imagens/Yoda.png">
+                </div>
+            </div>
+            <h1>Nome: nome_usuario <br> <br>
+                E-mail: user@gmail.com</h1>
+        </div>
+    </div>
+    <div class="footer">
+        <h1 class="title">LOGO DO WEBSITE</h1>
+        <div class="contato">
+            <h2>Entre em contato:</h2>
+            <div class="lista_contatos">
+                <h3>&phone; (11) 96574-9168</h3>
+                <h3>&#9993; bruno.ytakahashi@sptech.school</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function mostrar_imagens() {
+        imagens.style.display = "block";
+    }
+
+    function trocar(id) {
+        img_perfil.src = `Imagens/${id}.png`;
+        imagens.style.display = "none";
+    }
+</script>

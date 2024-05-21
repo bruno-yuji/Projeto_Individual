@@ -27,7 +27,7 @@ function autenticar(req, res) {
                             //aquarios: resultadoAquarios
                         });
 
-                        a/*quarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
+                        /*quarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
                             .then((resultadoAquarios) => {
                                 if (resultadoAquarios.length > 0) {
                                 } else {
