@@ -14,7 +14,7 @@
             <li> | </li>
             <li class="atual"> <a href="quiz.html">Quiz</a> </li>
             <li> | </li>
-            <li> <a href="rankings.html">Rankings</a> </li>
+            <li> <a href="dashboard.html">Dashboard</a> </li>
             <li> | </li>
             <li> <a href="perfil.html">Perfil</a> </li>
             <li> | </li>
@@ -22,157 +22,159 @@
         </ul>
     </div>
     <div class="background centro">
-        <div id="div_texto_quiz">
-            <h1 class="titulo">Quiz</h1>
-            <h1 class="texto_quiz">Teste o seu conhecimento sobre livros de Star Wars (Legends)! Responda um quiz com 10 perguntas e veja o resultado. Você poderá conferir sua média de acertos e classificação no ranking de usuários na seção Rankings.</h1>
-            <button class="botao2" onclick="iniciar()">Iniciar Quiz</button>
-        </div>
-        <div id="questao1" class="questao">
-            <h1>1ª Pergunta:</h1>
-            <img src="./Imagens/img_pergunta01.jpg">
-            <h2>O personagem Darth Bane é mais conhecido por ter criado:</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_1"> A. O Império Sith. <br>
-                <input type="radio" name="Alternativas_1"> B. A Estrela da Morte. <br>
-                <input type="radio" name="Alternativas_1" value="correto"> C. A Regra de Dois. <br>
-                <input type="radio" name="Alternativas_1"> D. O relâmpago da Força. <br>
+        <div>
+            <div id="div_texto_quiz">
+                <h1 class="titulo">Quiz</h1>
+                <h1 class="texto_quiz">Teste o seu conhecimento sobre livros de Star Wars (Legends)! Responda um quiz com 10 perguntas e veja o resultado. Você poderá conferir seu histórico de acertos na seção Dashboard.</h1>
+                <button class="botao2" onclick="iniciar()">Iniciar Quiz</button>
             </div>
-            <button class="btn_quiz" onclick="passar()">Próximo</button>
-        </div>
-        <div id="questao2" class="questao">
-            <h1>2ª Pergunta:</h1>
-            <img src="./Imagens/Troopers_da_Morte.jpg">
-            <h2>Onde se passa a maior parte da história no livro Troopers da Morte?</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_2"> A. Dentro da Estrela da Morte. <br>
-                <input type="radio" name="Alternativas_2"> B. No planeta Tatooine. <br>
-                <input type="radio" name="Alternativas_2"> C. Em uma estação espacial. <br>
-                <input type="radio" name="Alternativas_2" value="correto"> D. Em um Star Destroyer abandonado. <br>
-            </div>
-            <div class="botoes_quiz">
-                <button class="btn_quiz" onclick="voltar()">Anterior</button>
+            <div id="questao1" class="questao">
+                <h1>1ª Pergunta:</h1>
+                <img src="./Imagens/img_pergunta01.jpg">
+                <h2>O personagem Darth Bane é mais conhecido por ter criado:</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_1"> A. O Império Sith. <br>
+                    <input type="radio" name="Alternativas_1"> B. A Estrela da Morte. <br>
+                    <input type="radio" name="Alternativas_1" value="correto"> C. A Regra de Dois. <br>
+                    <input type="radio" name="Alternativas_1"> D. O relâmpago da Força. <br>
+                </div>
                 <button class="btn_quiz" onclick="passar()">Próximo</button>
             </div>
-        </div>
-        <div id="questao3" class="questao">
-            <h1>3ª Pergunta:</h1>
-            <img src="./Imagens/img_pergunta03.png">
-            <h2>Qual livro deu continuidade a história dos filmes originais?</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_3" value="correto"> A. Herdeiro do Império. <br>
-                <input type="radio" name="Alternativas_3"> B. A Ascensão e a Queda de Darth Vader. <br>
-                <input type="radio" name="Alternativas_3"> C. Darth Bane: Dinastia do Mal. <br>
-                <input type="radio" name="Alternativas_3"> D. O Último Comando. <br>
+            <div id="questao2" class="questao">
+                <h1>2ª Pergunta:</h1>
+                <img src="./Imagens/Troopers_da_Morte.jpg">
+                <h2>Onde se passa a maior parte da história no livro Troopers da Morte?</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_2"> A. Dentro da Estrela da Morte. <br>
+                    <input type="radio" name="Alternativas_2"> B. No planeta Tatooine. <br>
+                    <input type="radio" name="Alternativas_2"> C. Em uma estação espacial. <br>
+                    <input type="radio" name="Alternativas_2" value="correto"> D. Em um Star Destroyer abandonado. <br>
+                </div>
+                <div class="botoes_quiz">
+                    <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                    <button class="btn_quiz" onclick="passar()">Próximo</button>
+                </div>
             </div>
-            <div class="botoes_quiz">
+            <div id="questao3" class="questao">
+                <h1>3ª Pergunta:</h1>
+                <img src="./Imagens/img_pergunta03.png">
+                <h2>Qual livro deu continuidade a história dos filmes originais?</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_3" value="correto"> A. Herdeiro do Império. <br>
+                    <input type="radio" name="Alternativas_3"> B. A Ascensão e a Queda de Darth Vader. <br>
+                    <input type="radio" name="Alternativas_3"> C. Darth Bane: Dinastia do Mal. <br>
+                    <input type="radio" name="Alternativas_3"> D. O Último Comando. <br>
+                </div>
+                <div class="botoes_quiz">
+                    <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                    <button class="btn_quiz" onclick="passar()">Próximo</button>
+                </div>
+            </div>
+            <div id="questao4" class="questao">
+                <h1>4ª Pergunta:</h1>
+                <img src="./Imagens/img_pergunta04.png">
+                <h2>A Trilogia Thrawn apresenta uma criatura capaz de criar uma barreira contra a Força. Qual é o nome desta criatura?</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_4"> A. Dianoga. <br>
+                    <input type="radio" name="Alternativas_4"> B. Gundark. <br>
+                    <input type="radio" name="Alternativas_4"> C. Leviathan. <br>
+                    <input type="radio" name="Alternativas_4" value="correto"> D. Ysalamir. <br>
+                </div>
+                <div class="botoes_quiz">
+                    <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                    <button class="btn_quiz" onclick="passar()">Próximo</button>
+                </div>
+            </div>
+            <div id="questao5" class="questao">
+                <h1>5ª Pergunta:</h1>
+                <img src="./Imagens/img_pergunta05.png">
+                <h2>Qual era o cargo do antagonista Thrawn, na trilogia de mesmo nome?</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_5"> A. Imperador. <br>
+                    <input type="radio" name="Alternativas_5"> B. General. <br>
+                    <input type="radio" name="Alternativas_5" value="correto"> C. Grão-Almirante. <br>
+                    <input type="radio" name="Alternativas_5"> D. Líder da Inquisição. <br>
+                </div>
+                <div class="botoes_quiz">
+                    <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                    <button class="btn_quiz" onclick="passar()">Próximo</button>
+                </div>
+            </div>
+            <div id="questao6" class="questao">
+                <h1>6ª Pergunta:</h1>
+                <img src="./Imagens/img_pergunta06.jpg">
+                <h2>Cronologiamente, quando foi escrito o livro O Caminho Jedi, dentro do universo de Star Wars?</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_6"> A. Após Yoda se tornar Grande Mestre. <br>
+                    <input type="radio" name="Alternativas_6"> B. Foi escrito por Luke Skywalker, após a queda do Império. <br>
+                    <input type="radio" name="Alternativas_6"> C. Aproximadamente 3 mil anos antes dos filmes originais. <br>
+                    <input type="radio" name="Alternativas_6"  value="correto"> D. Alguns anos após Darth Bane: Dinastia do Mal. <br>
+                </div>
+                <div class="botoes_quiz">
+                    <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                    <button class="btn_quiz" onclick="passar()">Próximo</button>
+                </div>
+            </div>
+            <div id="questao7" class="questao">
+                <h1>7ª Pergunta:</h1>
+                <img src="./Imagens/Secrets_of_the_Galaxy.png">
+                <h2>Qual característica dos livro da coleção Secrets of the Galaxy os diferencia dos demais livros?</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_7"> A. Possuem histórias muitos mais longas. <br>
+                    <input type="radio" name="Alternativas_7" value="correto"> B. São escritos como se realmente existissem no universo de Star Wars. <br>
+                    <input type="radio" name="Alternativas_7"> C. Apresentam curiosidades compiladas por diversos autores. <br>
+                    <input type="radio" name="Alternativas_7"> D. Contam histórias paralelas, não relacionadas com a saga principal. <br>
+                </div>
+                <div class="botoes_quiz">
+                    <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                    <button class="btn_quiz" onclick="passar()">Próximo</button>
+                </div>
+            </div>
+            <div id="questao8" class="questao">
+                <h1>8ª Pergunta:</h1>
+                <img src="./Imagens/Sombras_do_Império.jpg">
+                <h2>No livro Sombras do Império, o princiapl objetivo do antagonista Príncipe Xizor era:</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_8" value="correto"> A. Vingança contra Darth Vader. <br>
+                    <input type="radio" name="Alternativas_8"> B. Se unir ao império. <br>
+                    <input type="radio" name="Alternativas_8"> C. Restaurar a influência de seu clã. <br>
+                    <input type="radio" name="Alternativas_8"> D. Destruir a rebelião. <br>
+                </div>
+                <div class="botoes_quiz">
+                    <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                    <button class="btn_quiz" onclick="passar()">Próximo</button>
+                </div>
+            </div>
+            <div id="questao9" class="questao">
+                <h1>9ª Pergunta:</h1>
+                <img src="./Imagens/Trilogia_Darth_Bane.jpg">
+                <h2>Em qual época se passa a Trilogia Darth Bane?</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_9" value="correto"> A. Final da Velha República. <br>
+                    <input type="radio" name="Alternativas_9"> B. Era de Ouro dos Sith. <br>
+                    <input type="radio" name="Alternativas_9"> C. Durante a Escuridão de 100 anos. <br>
+                    <input type="radio" name="Alternativas_9"> D. Segunda metade da Alta República. <br>
+                </div>
+                <div class="botoes_quiz">
+                    <button class="btn_quiz" onclick="voltar()">Anterior</button>
+                    <button class="btn_quiz" onclick="passar()">Próximo</button>
+                </div>
+            </div>
+            <div id="questao10" class="questao">
+                <h1>10ª Pergunta:</h1>
+                <img src="./Imagens/img_pergunta10.png">
+                <h2>Quem é o 2º antagonista principal da Trilogia Thrawn?</h2>
+                <div class="alternativas">
+                    <input type="radio" name="Alternativas_10"> A. Rukh. <br>
+                    <input type="radio" name="Alternativas_10"> B. Capitão Pellaeon. <br>
+                    <input type="radio" name="Alternativas_10" value="correto"> C. Joruus C'Baoth. <br>
+                    <input type="radio" name="Alternativas_10"> D. Talon Karrde. <br>
+                </div>
                 <button class="btn_quiz" onclick="voltar()">Anterior</button>
-                <button class="btn_quiz" onclick="passar()">Próximo</button>
+                <button class="btn_quiz" onclick="finalizar()">Finalizar</button>
             </div>
+            <div class="questao" id="div_resultado"></div>
         </div>
-        <div id="questao4" class="questao">
-            <h1>4ª Pergunta:</h1>
-            <img src="./Imagens/img_pergunta04.png">
-            <h2>A Trilogia Thrawn apresenta uma criatura capaz de criar uma barreira contra a Força. Qual é o nome desta criatura?</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_4"> A. Dianoga. <br>
-                <input type="radio" name="Alternativas_4"> B. Gundark. <br>
-                <input type="radio" name="Alternativas_4"> C. Leviathan. <br>
-                <input type="radio" name="Alternativas_4" value="correto"> D. Ysalamir. <br>
-            </div>
-            <div class="botoes_quiz">
-                <button class="btn_quiz" onclick="voltar()">Anterior</button>
-                <button class="btn_quiz" onclick="passar()">Próximo</button>
-            </div>
-        </div>
-        <div id="questao5" class="questao">
-            <h1>5ª Pergunta:</h1>
-            <img src="./Imagens/img_pergunta05.png">
-            <h2>Qual era o cargo do antagonista Thrawn, na trilogia de mesmo nome?</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_5"> A. Imperador. <br>
-                <input type="radio" name="Alternativas_5"> B. General. <br>
-                <input type="radio" name="Alternativas_5" value="correto"> C. Grão-Almirante. <br>
-                <input type="radio" name="Alternativas_5"> D. Líder da Inquisição. <br>
-            </div>
-            <div class="botoes_quiz">
-                <button class="btn_quiz" onclick="voltar()">Anterior</button>
-                <button class="btn_quiz" onclick="passar()">Próximo</button>
-            </div>
-        </div>
-        <div id="questao6" class="questao">
-            <h1>6ª Pergunta:</h1>
-            <img src="./Imagens/img_pergunta06.jpg">
-            <h2>Cronologiamente, quando foi escrito o livro O Caminho Jedi, dentro do universo de Star Wars?</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_6"> A. Após Yoda se tornar Grande Mestre. <br>
-                <input type="radio" name="Alternativas_6"> B. Foi escrito por Luke Skywalker, após a queda do Império. <br>
-                <input type="radio" name="Alternativas_6"> C. Aproximadamente 3 mil anos antes dos filmes originais. <br>
-                <input type="radio" name="Alternativas_6"  value="correto"> D. Alguns anos após Darth Bane: Dinastia do Mal. <br>
-            </div>
-            <div class="botoes_quiz">
-                <button class="btn_quiz" onclick="voltar()">Anterior</button>
-                <button class="btn_quiz" onclick="passar()">Próximo</button>
-            </div>
-        </div>
-        <div id="questao7" class="questao">
-            <h1>7ª Pergunta:</h1>
-            <img src="./Imagens/Secrets_of_the_Galaxy.png">
-            <h2>Qual característica dos livro da coleção Secrets of the Galaxy os diferencia dos demais livros?</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_7"> A. Possuem histórias muitos mais longas. <br>
-                <input type="radio" name="Alternativas_7" value="correto"> B. São escritos como se realmente existissem no universo de Star Wars. <br>
-                <input type="radio" name="Alternativas_7"> C. Apresentam curiosidades compiladas por diversos autores. <br>
-                <input type="radio" name="Alternativas_7"> D. Contam histórias paralelas, não relacionadas com a saga principal. <br>
-            </div>
-            <div class="botoes_quiz">
-                <button class="btn_quiz" onclick="voltar()">Anterior</button>
-                <button class="btn_quiz" onclick="passar()">Próximo</button>
-            </div>
-        </div>
-        <div id="questao8" class="questao">
-            <h1>8ª Pergunta:</h1>
-            <img src="./Imagens/Sombras_do_Império.jpg">
-            <h2>No livro Sombras do Império, o princiapl objetivo do antagonista Príncipe Xizor era:</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_8" value="correto"> A. Vingança contra Darth Vader. <br>
-                <input type="radio" name="Alternativas_8"> B. Se unir ao império. <br>
-                <input type="radio" name="Alternativas_8"> C. Restaurar a influência de seu clã. <br>
-                <input type="radio" name="Alternativas_8"> D. Destruir a rebelião. <br>
-            </div>
-            <div class="botoes_quiz">
-                <button class="btn_quiz" onclick="voltar()">Anterior</button>
-                <button class="btn_quiz" onclick="passar()">Próximo</button>
-            </div>
-        </div>
-        <div id="questao9" class="questao">
-            <h1>9ª Pergunta:</h1>
-            <img src="./Imagens/Trilogia_Darth_Bane.jpg">
-            <h2>Em qual época se passa a Trilogia Darth Bane?</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_9" value="correto"> A. Final da Velha República. <br>
-                <input type="radio" name="Alternativas_9"> B. Era de Ouro dos Sith. <br>
-                <input type="radio" name="Alternativas_9"> C. Durante a Escuridão de 100 anos. <br>
-                <input type="radio" name="Alternativas_9"> D. Segunda metade da Alta República. <br>
-            </div>
-            <div class="botoes_quiz">
-                <button class="btn_quiz" onclick="voltar()">Anterior</button>
-                <button class="btn_quiz" onclick="passar()">Próximo</button>
-            </div>
-        </div>
-        <div id="questao10" class="questao">
-            <h1>10ª Pergunta:</h1>
-            <img src="./Imagens/img_pergunta10.png">
-            <h2>Quem é o 2º antagonista principal da Trilogia Thrawn?</h2>
-            <div class="alternativas">
-                <input type="radio" name="Alternativas_10"> A. Rukh. <br>
-                <input type="radio" name="Alternativas_10"> B. Capitão Pellaeon. <br>
-                <input type="radio" name="Alternativas_10" value="correto"> C. Joruus C'Baoth. <br>
-                <input type="radio" name="Alternativas_10"> D. Talon Karrde. <br>
-            </div>
-            <button class="btn_quiz" onclick="voltar()">Anterior</button>
-            <button class="btn_quiz" onclick="finalizar()">Finalizar</button>
-        </div>
-        <div class="questao" id="div_resultado"></div>
     </div>
     <div class="footer">
         <h1 class="title">LOGO DO WEBSITE</h1>
