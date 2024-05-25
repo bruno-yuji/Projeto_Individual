@@ -6,7 +6,7 @@
     <title>Perfil</title>
     <link rel="stylesheet" href="./Estilização/style.css">
 </head>
-<body>
+<body onload="mostrar()">
     <div class="header">
         <h1 class="title">LOGO DO WEBSITE</h1>
         <ul class="navbar">
@@ -27,19 +27,19 @@
                 <img id="img_perfil" src="Imagens/Darth_Revan.png" class="perfil">
                 <button onclick="mostrar_imagens()">Trocar foto de perfil</button>
                 <div class="lista_imagens" id="imagens">
-                    <img onclick="trocar(this.id)" id="Luke" src="Imagens/Luke.png">
-                    <img onclick="trocar(this.id)" id="Boba_Fett" src="Imagens/Boba_Fett.png">
-                    <img onclick="trocar(this.id)" id="C3PO" src="Imagens/C3PO.png">
-                    <img onclick="trocar(this.id)" id="Thrawn" src="Imagens/Thrawn.png">
-                    <img onclick="trocar(this.id)" id="Darth_Vader" src="Imagens/Darth_Vader.png">
-                    <img onclick="trocar(this.id)" id="Joruus_C_Baoth" src="Imagens/Joruus_C_Baoth.png">
-                    <img onclick="trocar(this.id)" id="Leia" src="Imagens/Leia.png">
-                    <img onclick="trocar(this.id)" id="Darth_Revan" src="Imagens/Darth_Revan.png">
-                    <img onclick="trocar(this.id)" id="Yoda" src="Imagens/Yoda.png">
+                    <img onclick="trocar(this.id, this.src)" id="1" src="Imagens/Luke.png">
+                    <img onclick="trocar(this.id, this.src)" id="2" src="Imagens/Boba_Fett.png">
+                    <img onclick="trocar(this.id, this.src)" id="3" src="Imagens/C3PO.png">
+                    <img onclick="trocar(this.id, this.src)" id="4" src="Imagens/Thrawn.png">
+                    <img onclick="trocar(this.id, this.src)" id="5" src="Imagens/Darth_Vader.png">
+                    <img onclick="trocar(this.id, this.src)" id="6" src="Imagens/Joruus_C_Baoth.png">
+                    <img onclick="trocar(this.id, this.src)" id="7" src="Imagens/Leia.png">
+                    <img onclick="trocar(this.id, this.src)" id="8" src="Imagens/Darth_Revan.png">
+                    <img onclick="trocar(this.id, this.src)" id="9" src="Imagens/Yoda.png">
                 </div>
             </div>
-            <h1>Nome: nome_usuario <br> <br>
-                E-mail: user@gmail.com</h1>
+            <h1>Nome: <span id="nome_user"></span> <br> <br>
+                E-mail: <span id="email_user"></span> </h1>
         </div>
     </div>
     <div class="footer">
@@ -60,8 +60,44 @@
         imagens.style.display = "block";
     }
 
-    function trocar(id) {
-        img_perfil.src = `Imagens/${id}.png`;
+    function mostrar() {
+        var email = sessionStorage.EMAIL_USUARIO;
+        var nome = sessionStorage.NOME_USUARIO;
+        var foto = sessionStorage.ID_FOTO;
+
+        var nome_user = document.getElementById("nome_user");
+        var email_user = document.getElementById("email_user");
+
+        if (email != null && nome != null) {
+            nome_user.innerHTML = nome;
+            email_user.innerHTML = email;
+
+        } else {
+            window.location = "../login.html";
+        }
+    }
+
+    function trocar(id, src) {
+        img_perfil.src = src;
         imagens.style.display = "none";
+        var idFoto = id;
+
+        fetch("/perfil/trocar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fotoServer: idFoto
+            }),
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
     }
 </script>
