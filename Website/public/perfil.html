@@ -24,7 +24,7 @@
     <div class="background centro">
         <div class="tela_perfil">
             <div class="imagens_perfil">
-                <img id="img_perfil" src="Imagens/Darth_Revan.png" class="perfil">
+                <img id="img_perfil" src="" class="perfil">
                 <button onclick="mostrar_imagens()">Trocar foto de perfil</button>
                 <div class="lista_imagens" id="imagens">
                     <img onclick="trocar(this.id, this.src)" id="1" src="Imagens/Luke.png">
@@ -63,24 +63,27 @@
     function mostrar() {
         var email = sessionStorage.EMAIL_USUARIO;
         var nome = sessionStorage.NOME_USUARIO;
-        var foto = sessionStorage.ID_FOTO;
+        var foto = sessionStorage.CAMINHO_FOTO;
+        console.log(foto);
 
         var nome_user = document.getElementById("nome_user");
         var email_user = document.getElementById("email_user");
+        var perfil = document.getElementById("img_perfil");
 
-        if (email != null && nome != null) {
+        if (email != null && nome != null && foto != null) {
             nome_user.innerHTML = nome;
             email_user.innerHTML = email;
-
-        } else {
+            perfil.src = foto;
+        }/* else {
             window.location = "../login.html";
-        }
+        }*/
     }
 
     function trocar(id, src) {
         img_perfil.src = src;
         imagens.style.display = "none";
         var idFoto = id;
+        var id_user = sessionStorage.ID_USUARIO;
 
         fetch("/perfil/trocar", {
             method: "POST",
@@ -88,7 +91,8 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                fotoServer: idFoto
+                fotoServer: idFoto,
+                idServer: id_user
             }),
             })
             .then(function (resposta) {
