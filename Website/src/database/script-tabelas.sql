@@ -45,13 +45,13 @@ FOREIGN KEY (fkFoto) REFERENCES fotoPerfil(idFoto)
 );
 
 CREATE TABLE tentativaQuiz (
-idTentativa INT,
+idTentativa INT PRIMARY KEY AUTO_INCREMENT,
 fkUsuario INT,
-PRIMARY KEY (idTentativa, fkUsuario),
+FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
 acertos INT,
-dtTentativa DATETIME
+dtTentativa DATETIME default current_timestamp()
 );
 
-
-
+INSERT INTO tentativaQuiz (idTentativa, fkUsuario, acertos, dtTentativa) VALUES (default, 1, 6, default);
 select * from usuario;
+select * from tentativaQuiz;

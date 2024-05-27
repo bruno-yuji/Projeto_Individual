@@ -81,6 +81,7 @@
 
     function trocar(id, src) {
         img_perfil.src = src;
+        sessionStorage.CAMINHO_FOTO = src;
         imagens.style.display = "none";
         var idFoto = id;
         var id_user = sessionStorage.ID_USUARIO;

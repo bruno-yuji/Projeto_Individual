@@ -219,6 +219,7 @@
         questao10.style.display = 'none';
         var alternativa = '';
         var cor = '';
+        var id_user = sessionStorage.ID_USUARIO;
 
         for (var cont = 1; cont <= 10; cont++) {
             alternativa = document.getElementsByName(`Alternativas_${cont}`);
@@ -228,6 +229,7 @@
                 }
             }
         }
+
         if (acertos <= 4) {
             cor = 'red';
         } else if (acertos <= 7) {
@@ -238,6 +240,25 @@
         div_resultado.style.display = 'flex';
         div_resultado.innerHTML = `<h1>Resultado: <h1> <h2 style="color: ${cor};">Você acertou ${acertos} questões<h2>
             <button class="btn_quiz" onclick="retornar()">Retornar para página do Quiz</button>`;
+            
+        fetch("/quiz/enviar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUserServer: id_user,
+                acertosServer: acertos
+            }),
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
     }
     
     function retornar() {
