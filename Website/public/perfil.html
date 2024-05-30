@@ -38,8 +38,29 @@
                     <img onclick="trocar(this.id, this.src)" id="9" src="Imagens/Yoda.png">
                 </div>
             </div>
-            <h1>Nome: <span id="nome_user"></span> <br> <br>
-                E-mail: <span id="email_user"></span> </h1>
+            <h1>Nome: <span id="nome_user">Teste1</span> <br> <br>
+                E-mail: <span id="email_user">teste1@gmail.com</span> <br> <br>
+                Livro favorito: <span id="livro_favorito">Nenhum</span> <br>
+                <select id="select_livro">
+                    <option value="0">Escolha outro livro</option>
+                    <option value="1">Herdeiro do Império</option>
+                    <option value="2">Ascensão da Força Sombria</option>
+                    <option value="3">O Último Comando</option>
+                    <option value="4">Caminho de Destruição</option>
+                    <option value="5">Regra de Dois</option>
+                    <option value="6">Dinastia do Mal</option>
+                    <option value="7">A Ascensão e a Queda de Darth Vader</option>
+                    <option value="8">A Origem e a Lenda de Obi Wan Kenobi</option>
+                    <option value="9">A Vida de Luke Skywalker</option>
+                    <option value="10">O Livro dos Sith</option>
+                    <option value="11">O Caminho Jedi</option>
+                    <option value="12">Código do Caçador de Recompensas</option>
+                    <option value="13">Manual do Império</option>
+                    <option value="14">Troopers da Morte</option>
+                    <option value="15">Sombras do Império</option>
+                </select>
+                <button onclick="favoritar()">Favoritar</button>
+            </h1>
         </div>
     </div>
     <div class="footer">
@@ -64,8 +85,36 @@
         var email = sessionStorage.EMAIL_USUARIO;
         var nome = sessionStorage.NOME_USUARIO;
         var foto = sessionStorage.CAMINHO_FOTO;
-        console.log(foto);
+        var id_user = sessionStorage.ID_USUARIO;
 
+        fetch("/favorito/mostrarLivro", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idServer: id_user
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO mostrar()!")
+            if (resposta.ok) {
+                console.log(resposta);
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.LIVRO_FAVORITO = json.titulo;
+                });
+                var livroFavorito = sessionStorage.LIVRO_FAVORITO;
+                var livro = document.getElementById("livro_favorito");
+                if (livroFavorito == null) {
+                    livro.innerHTML = "Nenhum";
+                } else {
+                    livro.innerHTML = livroFavorito;
+                }
+            }
+        })
+
+        console.log(foto);
         var nome_user = document.getElementById("nome_user");
         var email_user = document.getElementById("email_user");
         var perfil = document.getElementById("img_perfil");
@@ -74,9 +123,7 @@
             nome_user.innerHTML = nome;
             email_user.innerHTML = email;
             perfil.src = foto;
-        }/* else {
-            window.location = "../login.html";
-        }*/
+        }
     }
 
     function trocar(id, src) {
@@ -104,5 +151,35 @@
             });
 
             return false;
+    }
+
+    function favoritar() {
+        var select_livro = document.getElementById("select_livro");
+        var id_livro = Number(select_livro.value);
+        var id_user = sessionStorage.ID_USUARIO;
+        
+        if (id_livro == 0) {
+            console.log("Nenhum livro selecionado");
+        } else {
+            livro_favorito.innerHTML = select_livro.options[select_livro.selectedIndex].text;
+            fetch("/favorito/favoritar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    livroServer: id_livro,
+                    idServer: id_user
+                }),
+                })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+    
+                return false;
+        }
     }
 </script>
