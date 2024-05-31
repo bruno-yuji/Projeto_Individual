@@ -16,6 +16,23 @@ titulo VARCHAR(45),
 descricao VARCHAR(80)
 );
 
+INSERT INTO livro (titulo) VALUES
+    ('Herdeiro do Império'), -- 1
+    ('Ascensão da Força Sombria'), -- 2
+    ('O Último Comando'), -- 3
+    ('Caminho de Destruição'), -- 4
+    ('Regra de Dois'), -- 5
+    ('Dinastia do Mal'), -- 6
+    ('A Ascensão e a Queda de Darth Vader'), -- 7
+    ('A Origem e a Lenda de Obi Wan Kenobi'), -- 8
+    ('A Vida de Luke Skywalker'), -- 9
+    ('O Livro dos Sith'), -- 10
+    ('O Caminho Jedi'), -- 11
+    ('Código do Caçador de Recompensas'), -- 12
+    ('Manual do Império'), -- 13
+    ('Troopers da Morte'), -- 14
+    ('Sombras do Império'); -- 15
+
 CREATE TABLE fotoPerfil (
 idFoto INT PRIMARY KEY AUTO_INCREMENT,
 caminhoFoto VARCHAR(60),
@@ -52,6 +69,7 @@ acertos INT,
 dtTentativa DATETIME default current_timestamp()
 );
 
-INSERT INTO tentativaQuiz (idTentativa, fkUsuario, acertos, dtTentativa) VALUES (default, 1, 6, default);
+-- INSERT INTO tentativaQuiz (idTentativa, fkUsuario, acertos, dtTentativa) VALUES (NULL, 1, 6, default);
 select * from usuario;
 select * from tentativaQuiz;
+select * from livro;

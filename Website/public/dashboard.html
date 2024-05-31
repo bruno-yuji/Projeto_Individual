@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./Estilização/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+<body onload="mostrarGrafico1(), mostrarGrafico2()">
     <div class="header">
         <h1 class="title">LOGO DO WEBSITE</h1>
         <ul class="navbar">
@@ -46,106 +46,190 @@
 </html>
 
 <script>
-    const ctx2 = document.getElementById('myChart');
-  
-    new Chart(ctx2, {
-      type: 'bar',
-      data: {
-        labels: ['Herdeiro do Império', 'Ascensão da Força Sombria', 'O Último Comando', 'Caminho de Destruição', 'Regra de Dois', 'Dinastia do Mal', 'A Ascensão e a Queda de Darth Vader', 'A Origem e a Lenda de Obi Wan Kenobi', 'A Vida de Luke Skywalker', 'O Livro dos Sith', 'O Caminho Jedi', 'Código do Caçador de Recompensas', 'Manual do Império', 'Troopers da Morte', 'Sombras do Império'],
-        datasets: [{
-          label: 'Quantidade de usuários que favoritaram',
-          data: [22, 24, 27, 23, 20, 18, 10, 13, 31, 13, 14, 18, 8, 23, 10],
-          backgroundColor: '#e53b3b',
-          borderColor: '#e53b3b'
-        }]
-      },
-      options: {
-        plugins: {  
-        legend: {
-            labels: {
-            color: "white",
-            font: {
-                size: 18
-            }
-            }
-        }
-        },
-        scales: {
-        y: {
-            ticks: {
-            color: "white",
-            font: {
-                size: 18,
-            },
-            stepSize: 1,
-            beginAtZero: true
-            }
-        },
-        x: {
-            ticks: {
-            color: "white",
-            font: {
-                size: 14
-            },
-            stepSize: 1,
-            beginAtZero: true
-            }
-        }
-        }
-    }
-    });
-</script>
+    function mostrarGrafico1() {
+        var idUser = sessionStorage.ID_USUARIO;
 
-<script>
-    const ctx = document.getElementById('myChart2');
-  
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['14-05-2024', '15-05-2024', '16-05-2024', '17-05-2024', '18-05-2024', '19-05-2024'],
-        datasets: [{
-          label: 'Acertos',
-          data: [4, 6, 5, 8, 8, 10],
-          borderWidth: 1.5,
-          pointRadius: 5,
-          backgroundColor: 'white',
-          borderColor: '#2196F3'
-        }]
-      },
-      options: {
-        plugins: {  
-        legend: {
-            labels: {
-            color: "white",
-            font: {
-                size: 18
+        fetch(`/dashboard/mostrarGrafico1/${idUser}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    let livros = [];
+                    let data = [];
+
+                    console.log('----------------------------------------------')
+                    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+                    console.log(resposta)
+
+                    // Inserindo valores recebidos em estrutura para plotar o gráfico
+                    for (i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+                        livros.push(registro.titulo);
+                        data.push(registro.qtdFavorito);
+                    }
+
+                    console.log('----------------------------------------------')
+                    console.log('O gráfico será plotado com os respectivos valores:')
+                    console.log('Labels:')
+                    console.log(livros)
+                    console.log('Dados:')
+                    console.log(data)
+                    console.log('----------------------------------------------')
+
+                    const grafico1 = document.getElementById('myChart');
+            
+                    new Chart(grafico1, {
+                    type: 'bar',
+                    data: {
+                        labels: livros,
+                        datasets: [{
+                        label: 'Quantidade de usuários que favoritaram',
+                        data: data,
+                        backgroundColor: '#e53b3b',
+                        borderColor: '#e53b3b'
+                        }]
+                    },
+                    options: {
+                        plugins: {  
+                        legend: {
+                            labels: {
+                            color: "white",
+                            font: {
+                                size: 18
+                            }
+                            }
+                        }
+                        },
+                        scales: {
+                        y: {
+                            ticks: {
+                            color: "white",
+                            font: {
+                                size: 18,
+                            },
+                            stepSize: 1,
+                            beginAtZero: true
+                            }
+                        },
+                        x: {
+                            ticks: {
+                            color: "white",
+                            font: {
+                                size: 14
+                            },
+                            stepSize: 1,
+                            beginAtZero: true
+                            }
+                        }
+                        }
+                    }
+                    });
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
             }
-            }
-        }
-        },
-        scales: {
-        y: {
-            beginAtZero: true,
-            ticks: {
-            min: 0,
-            color: "white",
-            font: {
-                size: 18,
-            },
-            stepSize: 1,
-            }
-        },
-        x: {
-            ticks: {
-            min: 0,
-            color: "white",
-            font: {
-                size: 14
-            },
-            stepSize: 1,
-            }
-        }
-        }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+            console.log('iniciando plotagem do gráfico...');
     }
-    });
+
+    function mostrarGrafico2() {
+
+        var idUser = sessionStorage.ID_USUARIO;
+
+        fetch(`/dashboard/mostrarGrafico2/${idUser}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    //resposta.reverse();
+
+                    let momento = [];
+                    let acerto = [];
+
+                    console.log('----------------------------------------------')
+                    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+                    console.log(resposta)
+
+                    // Inserindo valores recebidos em estrutura para plotar o gráfico
+                    for (i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+                        momento.push(registro.dtTentativa);
+                        acerto.push(registro.acertos);
+                    }
+
+                    console.log('----------------------------------------------')
+                    console.log('O gráfico será plotado com os respectivos valores:')
+                    console.log('Labels:')
+                    console.log(momento)
+                    console.log('Dados:')
+                    console.log(acerto)
+                    console.log('----------------------------------------------')
+
+                    const grafico2 = document.getElementById('myChart2');
+                
+                    new Chart(grafico2, {
+                    type: 'line',
+                    data: {
+                        labels: momento,
+                        datasets: [{
+                        label: 'Acertos',
+                        data: acerto,
+                        borderWidth: 1.5,
+                        pointRadius: 5,
+                        backgroundColor: 'white',
+                        borderColor: '#2196F3'
+                        }]
+                    },
+                    options: {
+                        plugins: {  
+                        legend: {
+                            labels: {
+                            color: "white",
+                            font: {
+                                size: 18
+                            }
+                            }
+                        }
+                        },
+                        scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                            min: 0,
+                            color: "white",
+                            font: {
+                                size: 18,
+                            },
+                            stepSize: 1,
+                            }
+                        },
+                        x: {
+                            ticks: {
+                            min: 0,
+                            color: "white",
+                            font: {
+                                size: 14
+                            },
+                            stepSize: 1,
+                            }
+                        }
+                        }
+                    }
+                    });
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+            console.log('iniciando plotagem do gráfico...');
+    }
 </script>
