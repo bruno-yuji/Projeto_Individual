@@ -99,7 +99,7 @@
             senha.indexOf('?') < 0) || 
             senha.length < 8
           ) { 
-            div_erro_senha.innerHTML = `Senha Fraca!`;
+            div_erro_senha.innerHTML = `Senha Fraca! <br> (A senha deve ter pelo menos 8 caracteres e 1 caractere especial)`;
           } else {
             div_erro_senha.innerHTML = "";
             valido++;

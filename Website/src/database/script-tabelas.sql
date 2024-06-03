@@ -14,9 +14,10 @@ CREATE TABLE livro (
 idLivro INT PRIMARY KEY AUTO_INCREMENT,
 titulo VARCHAR(45),
 descricao VARCHAR(80)
-);
+) auto_increment = 0;
 
 INSERT INTO livro (titulo) VALUES
+	('Nenhum'), -- 0
     ('Herdeiro do Império'), -- 1
     ('Ascensão da Força Sombria'), -- 2
     ('O Último Comando'), -- 3
@@ -73,3 +74,8 @@ dtTentativa DATETIME default current_timestamp()
 select * from usuario;
 select * from tentativaQuiz;
 select * from livro;
+
+SELECT id, nome, email, caminhoFoto, titulo, ifnull(fkLivroFavorito, 1) FROM usuario 
+JOIN fotoPerfil ON idFoto = fkFoto 
+JOIN livro ON fkLivroFavorito = idLivro 
+WHERE email = 'teste@gmail.com' AND senha = '1234567@';

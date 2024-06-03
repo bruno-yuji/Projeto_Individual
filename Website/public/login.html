@@ -29,6 +29,7 @@
                 <span>Senha:</span> 
                 <input type="password" id="input_senha"> <br>
                 <button class="botao btn_login" onclick="entrar()">Login</button> <br>
+                <div id="div_erro" class="error"></div> <br>
                 <span>Não possui uma conta? Faça seu <a href="cadastro.html">cadastro</a> </span>
             </div>
         </div>
@@ -74,6 +75,7 @@
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
+                div_erro.innerHTML = "";
                 console.log(resposta);
 
                 resposta.json().then(json => {
@@ -83,7 +85,7 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.CAMINHO_FOTO = json.caminhoFoto;
-                    sessionStorage.LIVRO_FAVORITO = null;
+                    sessionStorage.LIVRO_FAVORITO = json.titulo;
                     // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
@@ -95,6 +97,8 @@
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
+
+                div_erro.innerHTML = "E-mail ou senha inválidos! <br>";
 
                 resposta.text().then(texto => {
                     console.error(texto);

@@ -24,7 +24,8 @@ function autenticar(req, res) {
                             email: resultadoAutenticar[0].email,
                             nome: resultadoAutenticar[0].nome,
                             senha: resultadoAutenticar[0].senha,
-                            caminhoFoto: resultadoAutenticar[0].caminhoFoto
+                            caminhoFoto: resultadoAutenticar[0].caminhoFoto,
+                            titulo: resultadoAutenticar[0].titulo
                             //aquarios: resultadoAquarios
                         });
 
