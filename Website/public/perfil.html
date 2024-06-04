@@ -25,7 +25,7 @@
         <div class="tela_perfil">
             <div class="imagens_perfil">
                 <img id="img_perfil" src="" class="perfil">
-                <button onclick="mostrar_imagens()">Trocar foto de perfil</button>
+                <button class="perfil_button" onclick="mostrar_imagens()">Trocar foto de perfil</button>
                 <div class="lista_imagens" id="imagens">
                     <img onclick="trocar(this.id, this.src)" id="1" src="Imagens/Luke.png">
                     <img onclick="trocar(this.id, this.src)" id="2" src="Imagens/Boba_Fett.png">
@@ -38,9 +38,10 @@
                     <img onclick="trocar(this.id, this.src)" id="9" src="Imagens/Yoda.png">
                 </div>
             </div>
-            <h1>Nome: <span id="nome_user">Teste1</span> <br> <br>
-                E-mail: <span id="email_user">teste1@gmail.com</span> <br> <br>
-                Livro favorito: <span id="livro_favorito">Nenhum</span> <br>
+            <h1>Nome: <span id="nome_user"></span> <img class="edit" onclick="editar()" src="./Imagens/edit_icon.png"> <br> <br>
+                <div class="edicao" id="div_edicao"></div>
+                E-mail: <span id="email_user"></span> <br> <br>
+                Livro favorito: <span id="livro_favorito"></span> <br>
                 <select id="select_livro">
                     <option value="1">Escolha outro livro</option>
                     <option value="2">Herdeiro do Império</option>
@@ -59,7 +60,7 @@
                     <option value="15">Troopers da Morte</option>
                     <option value="16">Sombras do Império</option>
                 </select>
-                <button onclick="favoritar()">Favoritar</button>
+                <button class="perfil_button" onclick="favoritar()">Favoritar</button>
             </h1>
         </div>
     </div>
@@ -181,5 +182,49 @@
     
                 return false;
         }
+    }
+
+    function editar() {
+        var nome = sessionStorage.NOME_USUARIO;
+        div_edicao.innerHTML = `
+        <input id="nome_atual" type="text" value="${nome}">
+        <button class="perfil_button" onclick="alterar()">Alterar nome</button> <span class="close" onclick="fechar()">&#9746;</span>
+        `;
+        document.getElementById("nome_atual").focus();
+    }
+
+    function fechar() {
+        div_edicao.innerHTML = "";
+    }
+
+    function alterar() {
+        var nome = nome_atual.value;
+        
+        sessionStorage.NOME_USUARIO = nome;
+        nome_user.innerHTML = nome;
+        
+        var novoNome = nome;
+        var id_user = sessionStorage.ID_USUARIO;
+        fechar();
+
+        fetch("/nome/alterar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: novoNome,
+                idServer: id_user
+            }),
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+
     }
 </script>

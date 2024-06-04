@@ -1,6 +1,5 @@
 var database = require("../database/config")
 
-
 function trocar(idFoto, idUser) {
     var instrucao = `
     UPDATE usuario SET fkFoto = ${idFoto} WHERE id = ${idUser};
@@ -9,15 +8,15 @@ function trocar(idFoto, idUser) {
     return database.executar(instrucao);
 }
 
-/*function mostrar(fkFoto) {
+function renomear(novoNome, idUser) {
     var instrucao = `
-        SELECT caminhoFoto FROM fotoPerfil WHERE idFoto = ${fkFoto};
+    UPDATE usuario SET nome = ${novoNome} WHERE id = ${idUser};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
-}*/
+}
 
 module.exports = {
     trocar,
-    //mostrar
+    renomear
 };
