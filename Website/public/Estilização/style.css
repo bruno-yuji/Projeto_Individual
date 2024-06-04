@@ -41,7 +41,7 @@ body {
 }
 
 .background {
-    padding: 5% 10% 10% 5%;
+    padding: 5% 5% 10% 5%;
     height: auto;
     width: auto;
     background-image: url("../Imagens/Background.png");
@@ -139,6 +139,31 @@ body {
     font-weight: bold;
 }
 
+.alerta_erro{
+    margin-left: 39vw;
+    text-align: center;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    opacity: 75%;
+    color: rgb(0, 0, 0);
+    width: 20vw;
+    position: fixed;
+    border-radius: 4px;
+    border: #2173f6 0.2rem solid;
+    box-shadow:
+    0 0 0.3rem 0.2rem #2173f6,
+    0 0 0.8rem 0.3rem #2173f6;
+    padding: 10px;
+}
+  
+.card_erro #mensagem_erro{
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
+
 .btn_login {
     border: #35f668 solid 4px;
     color: #18c546;
@@ -166,6 +191,7 @@ body {
 .error {
     color: red;
     font-weight: bolder;
+    text-align: center;
 }
 
 .legends {
@@ -216,6 +242,7 @@ body {
 .texto_resenhas {
     width: 13vw;
     text-align: justify;
+    font-size: 1.2rem;
 }
 
 .livro {

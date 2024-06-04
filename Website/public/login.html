@@ -20,6 +20,11 @@
             <li class="atual"> <a href="login.html">Login</a> </li>
         </ul>
     </div>
+    <div id="div_alerta" class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+        </div>
+    </div>
     <div class="background centro">
         <div class="caixa">
             <div class="formulario">
@@ -55,7 +60,9 @@
         var senhaVar = input_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
-            alert("Preencha todos os campos!");
+            cardErro.style.display = "block";
+            cardErro.style.color = "red";
+            mensagem_erro.innerHTML = "Preencha todos os campos!";
             return false;
         }
 
@@ -76,6 +83,10 @@
 
             if (resposta.ok) {
                 div_erro.innerHTML = "";
+                cardErro.style.display = "block";
+                cardErro.style.color = "rgb(31, 0, 154)";
+                mensagem_erro.innerHTML = "Carregando...";
+                
                 console.log(resposta);
 
                 resposta.json().then(json => {

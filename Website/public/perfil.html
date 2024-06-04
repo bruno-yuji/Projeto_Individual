@@ -86,34 +86,10 @@
         var email = sessionStorage.EMAIL_USUARIO;
         var nome = sessionStorage.NOME_USUARIO;
         var foto = sessionStorage.CAMINHO_FOTO;
-        var id_user = sessionStorage.ID_USUARIO;
+        var livroFavorito = sessionStorage.LIVRO_FAVORITO;
+        var livro = document.getElementById("livro_favorito");
 
-        fetch("/favorito/mostrarLivro", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                idServer: id_user
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO mostrar()!")
-            if (resposta.ok) {
-                console.log(resposta);
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.LIVRO_FAVORITO = json.titulo;
-                });
-                var livroFavorito = sessionStorage.LIVRO_FAVORITO;
-                var livro = document.getElementById("livro_favorito");
-                if (livroFavorito == null) {
-                    livro.innerHTML = "Nenhum";
-                } else {
-                    livro.innerHTML = livroFavorito;
-                }
-            }
-        })
+        livro.innerHTML = livroFavorito;
 
         console.log(foto);
         var nome_user = document.getElementById("nome_user");
@@ -179,7 +155,9 @@
                 .catch(function (resposta) {
                     console.log(`#ERRO: ${resposta}`);
                 });
-    
+                
+                select_livro.value = "1";
+
                 return false;
         }
     }

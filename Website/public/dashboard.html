@@ -30,8 +30,8 @@
             <canvas id="myChart" style="position: relative; height:65vh; width:80vw"></canvas>
         </div>
         <div>
-            <h1 class="texto_dashboard">Seus acertos no Quiz</h1>
-            <canvas id="myChart2" style="position: relative; height:65vh; width:80vw"></canvas>
+            <h1 class="texto_dashboard"></h1>
+            <canvas id="myChart2" style="display: none; position: relative; height:65vh; width:80vw"></canvas>
         </div>
     </div>
     <div class="footer">
@@ -81,7 +81,7 @@
                     console.log('----------------------------------------------')
 
                     const grafico1 = document.getElementById('myChart');
-
+                    
                     new Chart(grafico1, {
                         type: 'bar',
                         data: {
@@ -177,6 +177,11 @@
                     console.log('----------------------------------------------')
 
                     const grafico2 = document.getElementById('myChart2');
+
+                    if (momento.length >= 1) {
+                        texto_dashboard.innerHTMl = "Seus acertos no Quiz";
+                        grafico2.style.display = "block";
+                    }
 
                     new Chart(grafico2, {
                         type: 'line',

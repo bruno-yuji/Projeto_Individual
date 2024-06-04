@@ -17,7 +17,7 @@ function favoritar(req, res) {
     }
 }
 
-function mostrarLivro(req, res) {
+/*function mostrarLivro(req, res) {
     var idUser = req.body.idServer;
 
     if (idUser == undefined) {
@@ -45,9 +45,9 @@ function mostrarLivro(req, res) {
                 }
             );
     }
-}
+}*/
 
 module.exports = {
     favoritar,
-    mostrarLivro
+    //mostrarLivro
 }
