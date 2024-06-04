@@ -6,7 +6,7 @@ function autenticar(email, senha) {
     var instrucaoSql = `
     SELECT u.id, nome, email, caminhoFoto, titulo, retorno.fkLivroFavorito FROM usuario AS u
         JOIN fotoPerfil ON idFoto = fkFoto
-        JOIN (SELECT id, ifnull(fkLivroFavorito, 1) AS fkLivroFavorito FROM usuario WHERE email = 'teste@gmail.com' AND senha = '1234567@') 
+        JOIN (SELECT id, ifnull(fkLivroFavorito, 1) AS fkLivroFavorito FROM usuario WHERE email = '${email}' AND senha = '${senha}') 
         AS retorno ON retorno.id = u.id
         JOIN livro ON retorno.fkLivroFavorito = idLivro
         WHERE email = '${email}' AND senha = '${senha}';

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./Estilização/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body onload="mostrarGrafico1(), mostrarGrafico2()">
     <div class="header">
         <img class="logo" src="Imagens/logoStarBooks.png">
@@ -30,7 +32,7 @@
         <div>
             <h1 class="texto_dashboard">Seus acertos no Quiz</h1>
             <canvas id="myChart2" style="position: relative; height:65vh; width:80vw"></canvas>
-        </div>    
+        </div>
     </div>
     <div class="footer">
         <img class="logo" src="Imagens/logoStarBooks.png">
@@ -43,6 +45,7 @@
         </div>
     </div>
 </body>
+
 </html>
 
 <script>
@@ -78,52 +81,56 @@
                     console.log('----------------------------------------------')
 
                     const grafico1 = document.getElementById('myChart');
-            
+
                     new Chart(grafico1, {
-                    type: 'bar',
-                    data: {
-                        labels: livros,
-                        datasets: [{
-                        label: 'Quantidade de usuários que favoritaram',
-                        data: data,
-                        backgroundColor: '#e53b3b',
-                        borderColor: '#e53b3b'
-                        }]
-                    },
-                    options: {
-                        plugins: {  
-                        legend: {
-                            labels: {
-                            color: "white",
-                            font: {
-                                size: 18
-                            }
-                            }
-                        }
+                        type: 'bar',
+                        data: {
+                            labels: livros,
+                            datasets: [{
+                                label: 'Quantidade de usuários que favoritaram',
+                                data: data,
+                                backgroundColor: '#e53b3b',
+                                borderColor: '#e53b3b'
+                            }]
                         },
-                        scales: {
-                        y: {
-                            ticks: {
-                            color: "white",
-                            font: {
-                                size: 18,
+                        options: {
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: "white",
+                                        font: {
+                                            size: 18
+                                        }
+                                    }
+                                }
                             },
-                            stepSize: 1,
-                            beginAtZero: true
-                            }
-                        },
-                        x: {
-                            ticks: {
-                            color: "white",
-                            font: {
-                                size: 14
-                            },
-                            stepSize: 1,
-                            beginAtZero: true
+                            scales: {
+                                y: {
+                                    grid: {
+                                            display: true,
+                                            color: "white"
+                                        },
+                                    ticks: {
+                                        color: "white",
+                                        font: {
+                                            size: 18,
+                                        },
+                                        stepSize: 1,
+                                        beginAtZero: true
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        color: "white",
+                                        font: {
+                                            size: 14
+                                        },
+                                        stepSize: 1,
+                                        beginAtZero: true
+                                    }
+                                }
                             }
                         }
-                        }
-                    }
                     });
                 });
             } else {
@@ -134,7 +141,7 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-            console.log('iniciando plotagem do gráfico...');
+        console.log('iniciando plotagem do gráfico...');
     }
 
     function mostrarGrafico2() {
@@ -170,55 +177,59 @@
                     console.log('----------------------------------------------')
 
                     const grafico2 = document.getElementById('myChart2');
-                
+
                     new Chart(grafico2, {
-                    type: 'line',
-                    data: {
-                        labels: momento,
-                        datasets: [{
-                        label: 'Acertos',
-                        data: acerto,
-                        borderWidth: 1.5,
-                        pointRadius: 5,
-                        backgroundColor: 'white',
-                        borderColor: '#2196F3'
-                        }]
-                    },
-                    options: {
-                        plugins: {  
-                        legend: {
-                            labels: {
-                            color: "white",
-                            font: {
-                                size: 18
-                            }
-                            }
-                        }
+                        type: 'line',
+                        data: {
+                            labels: momento,
+                            datasets: [{
+                                label: 'Acertos',
+                                data: acerto,
+                                borderWidth: 1.5,
+                                pointRadius: 5,
+                                backgroundColor: 'white',
+                                borderColor: '#2196F3'
+                            }]
                         },
-                        scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                            min: 0,
-                            color: "white",
-                            font: {
-                                size: 18,
+                        options: {
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: "white",
+                                        font: {
+                                            size: 18
+                                        }
+                                    }
+                                }
                             },
-                            stepSize: 1,
-                            }
-                        },
-                        x: {
-                            ticks: {
-                            min: 0,
-                            color: "white",
-                            font: {
-                                size: 14
-                            },
-                            stepSize: 1,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,  
+                                    grid: {
+                                            display: true,
+                                            color: "white"
+                                        },                            
+                                    ticks: {
+                                        min: 0,
+                                        color: "white",
+                                        font: {
+                                            size: 18,
+                                        },
+                                        stepSize: 1,
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        min: 0,
+                                        color: "white",
+                                        font: {
+                                            size: 14
+                                        },
+                                        stepSize: 1,
+                                    }
+                                },
                             }
                         }
-                        }
-                    }
                     });
 
                 });
@@ -230,6 +241,6 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-            console.log('iniciando plotagem do gráfico...');
+        console.log('iniciando plotagem do gráfico...');
     }
 </script>
