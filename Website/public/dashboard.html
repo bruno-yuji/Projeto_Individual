@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rankings</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="./Estilização/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -30,7 +30,7 @@
             <canvas id="myChart" style="position: relative; height:65vh; width:80vw"></canvas>
         </div>
         <div>
-            <h1 class="texto_dashboard"></h1>
+            <h1 id="texto_dashboard" class="texto_dashboard"></h1>
             <canvas id="myChart2" style="display: none; position: relative; height:65vh; width:80vw"></canvas>
         </div>
     </div>
@@ -108,10 +108,11 @@
                                 y: {
                                     grid: {
                                             display: true,
-                                            color: "white"
+                                            color: "white",
+                                            lineWidth: 0.5
                                         },
                                     ticks: {
-                                        color: "white",
+                                        color: "yellow",
                                         font: {
                                             size: 18,
                                         },
@@ -121,7 +122,7 @@
                                 },
                                 x: {
                                     ticks: {
-                                        color: "white",
+                                        color: "yellow",
                                         font: {
                                             size: 14
                                         },
@@ -179,7 +180,7 @@
                     const grafico2 = document.getElementById('myChart2');
 
                     if (momento.length >= 1) {
-                        texto_dashboard.innerHTMl = "Seus acertos no Quiz";
+                        texto_dashboard.innerText = "Seus acertos no Quiz";
                         grafico2.style.display = "block";
                     }
 
@@ -212,11 +213,12 @@
                                     beginAtZero: true,  
                                     grid: {
                                             display: true,
-                                            color: "white"
+                                            color: "white",
+                                            lineWidth: 0.5
                                         },                            
                                     ticks: {
                                         min: 0,
-                                        color: "white",
+                                        color: "yellow",
                                         font: {
                                             size: 18,
                                         },
@@ -226,7 +228,7 @@
                                 x: {
                                     ticks: {
                                         min: 0,
-                                        color: "white",
+                                        color: "yellow",
                                         font: {
                                             size: 14
                                         },

@@ -69,13 +69,21 @@ body {
 }
 
 .sobre {
-    color: yellow;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
     text-align: justify;
     width: 90%;
+    background: linear-gradient(rgba(116, 186, 255, 0.4), rgba(63, 137, 211, 0.4), rgba(116, 186, 255, 0.4), rgba(63, 137, 211, 0.4));
+    border: 0.2rem solid rgb(84, 167, 251);
+    padding: 1rem;
+    box-shadow:
+    0 0 0.8rem 0.2rem rgb(116, 186, 255),
+    0 0 0.8rem 0.2rem rgb(162, 206, 251),
+    0 0 0.8rem 0.2rem #fff;
 }
 
 .footer {
-    background-color: rgb(88, 85, 85);
+    background: linear-gradient(rgb(68, 67, 67), rgb(88, 85, 85));
     border-top: 0.6vh solid rgb(253, 206, 54);
     padding-bottom: 10px;
     display: flex;
@@ -101,9 +109,9 @@ body {
     border: 3px solid white;
     box-shadow:
     0 0 0.3rem 0.2rem #fff,
-    0 0 0.8rem 0.8rem #fff;
+    0 0 0.8rem 0.4rem #fff;
     border-radius: 10px;
-    background-color: black;
+    background: linear-gradient(black, rgb(54, 53, 53), rgb(92, 91, 91), rgb(58, 57, 57), rgb(54, 53, 53), rgb(92, 91, 91), rgb(33, 33, 33));
     width: 30rem;
     height: auto;
     padding: 1rem;
@@ -124,19 +132,22 @@ body {
     text-align: center;
 }
 
+.formulario span a {
+    color: rgb(96, 96, 237);
+}
+
 .botao {
     background-color: white;
     border-radius: 15px;
-    text-decoration: underline;
     font-size: large;
     width: 10rem;
     cursor: pointer;
 }
 
 .btn_cadastro {
-    border: #35ccf6 solid 4px;
-    color: #00bbef;
-    font-weight: bold;
+    font-weight: bolder;
+    background: linear-gradient(red, rgb(71, 17, 17));
+    padding: 0.3rem;
 }
 
 .alerta_erro{
@@ -146,7 +157,7 @@ body {
 
 .card_erro {
     display: none;
-    background-color: #fff;
+    background: linear-gradient(rgb(255, 252, 252), rgb(207, 201, 201), rgb(255, 252, 252), rgb(207, 201, 201));
     opacity: 75%;
     color: rgb(0, 0, 0);
     width: 20vw;
@@ -165,9 +176,9 @@ body {
 }
 
 .btn_login {
-    border: #35f668 solid 4px;
-    color: #18c546;
-    font-weight: bold;
+    font-weight: bolder;
+    background: linear-gradient(rgb(7, 67, 36), rgb(22, 112, 37));
+    padding: 0.3rem;
 }
 
 .itens {
@@ -256,6 +267,10 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background: linear-gradient(rgb(0, 0, 0), rgb(55, 55, 55), rgb(74, 74, 74), rgb(55, 55, 55), rgb(0, 0, 0));
+    padding: 3rem;
+    border-radius: 5px;
+    border: 0.1rem solid rgb(159, 159, 159);
 }
 
 .titulo {
@@ -278,7 +293,8 @@ body {
 .botao2 {
     align-self: center;
     margin-top: 1rem;
-    border: 0.3rem solid rgb(249, 186, 104);
+    border: 0.2rem solid rgb(249, 217, 104);
+    background: linear-gradient(yellow, orange, yellow, orange);
     border-radius: 50px;
     width: 13rem;
     height: 4rem;
@@ -406,12 +422,12 @@ body {
 .tela_perfil {
     width: 60vw;
     height: fit-content;
-    background-color: rgb(66, 64, 64);
+    background: linear-gradient(rgb(101, 98, 98), rgb(66, 64, 64), rgb(27, 27, 27));
     box-shadow:
-    0 0 10px 0.5rem #fff,
-    0 0 20px 0.5rem #fff;
-    border: 0.3rem solid white;
-    opacity: 0.8;
+    0 0 10px 0.3rem #a3a3a3,
+    0 0 20px 0.3rem #fff;
+    border: 0.2rem solid rgb(128, 128, 128);
+    opacity: 0.85;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

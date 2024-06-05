@@ -14,7 +14,7 @@ function mostrarGrafico1(idUser) {
 
 function mostrarGrafico2(idUser, limite_linhas) {
 
-    var instrucaoSql = `SELECT acertos, dtTentativa FROM tentativaQuiz
+    var instrucaoSql = `SELECT acertos, DATE_FORMAT(dtTentativa, '%d/%c/%Y %H:%i') AS dtTentativa FROM tentativaQuiz
                             JOIN usuario ON id = fkUsuario
                             WHERE id = ${idUser}
                             LIMIT ${limite_linhas};`;
