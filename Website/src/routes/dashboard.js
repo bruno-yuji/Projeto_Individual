@@ -3,12 +3,16 @@ var router = express.Router();
 
 var dashboardController = require("../controllers/dashboardController");
 
-router.get("/mostrarGrafico1/:idUser", function (req, res) {
-    dashboardController.mostrarGrafico1(req, res);
+router.get("/mostrarGraficoLivros/:idUser", function (req, res) {
+    dashboardController.mostrarGraficoLivros(req, res);
 });
 
-router.get("/mostrarGrafico2/:idUser", function (req, res) {
-    dashboardController.mostrarGrafico2(req, res);
+router.get("/mostrarGraficoPizza/:idUser", function (req, res) {
+    dashboardController.mostrarGraficoPizza(req, res);
+})
+
+router.get("/mostrarGraficoQuiz/:idUser", function (req, res) {
+    dashboardController.mostrarGraficoQuiz(req, res);
 })
 
 module.exports = router;

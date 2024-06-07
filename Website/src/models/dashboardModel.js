@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function mostrarGrafico1(idUser) {
+function mostrarGraficoLivros(idUser) {
     console.log("Gráfico 1 do usuário " + idUser)
 
     var instrucaoSql = `SELECT titulo, count(fkLivroFavorito) as qtdFavorito
@@ -12,7 +12,18 @@ function mostrarGrafico1(idUser) {
     return database.executar(instrucaoSql);
 }
 
-function mostrarGrafico2(idUser, limite_linhas) {
+function mostrarGraficoPizza(idUser) {
+
+    var instrucaoSql = `SELECT acertos, DATE_FORMAT(dtTentativa, '%d/%c/%Y %H:%i') AS dtTentativa FROM tentativaQuiz
+                            JOIN usuario ON id = fkUsuario
+                            WHERE id = ${idUser}
+                            ORDER BY dtTentativa DESC LIMIT 1;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function mostrarGraficoQuiz(idUser, limite_linhas) {
 
     var instrucaoSql = `SELECT acertos, DATE_FORMAT(dtTentativa, '%d/%c/%Y %H:%i') AS dtTentativa FROM tentativaQuiz
                             JOIN usuario ON id = fkUsuario
@@ -24,6 +35,7 @@ function mostrarGrafico2(idUser, limite_linhas) {
 }
 
 module.exports = {
-    mostrarGrafico1,
-    mostrarGrafico2
+    mostrarGraficoLivros,
+    mostrarGraficoPizza,
+    mostrarGraficoQuiz
 }

@@ -5,7 +5,7 @@
 /*
 comandos para mysql server
 */
-
+DROP DATABASE IF EXISTS projeto;
 CREATE DATABASE projeto;
 
 USE projeto;

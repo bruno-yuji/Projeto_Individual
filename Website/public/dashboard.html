@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="mostrarGrafico1(), mostrarGrafico2()">
+<body onload="mostrarGrafico1(), mostrarGrafico2(), mostrarGrafico3()">
     <div class="header">
         <img class="logo" src="Imagens/logoStarBooks.png">
         <ul class="navbar">
@@ -28,11 +28,14 @@
         <div>
             <h1 class="texto_dashboard">Livros favoritados por usuários</h1>
             <canvas id="myChart" style="position: relative; height:65vh; width:80vw"></canvas>
+            <hr style="height:0.1rem; color:gray; background-color:gray">
         </div>
-        <div>
+        <div id="div_graphQuiz" style="display: none;">
+            <h1 id="texto_pizza" class="texto_dashboard"></h1>
+            <canvas id="myChartPizza" style="position: relative; width:30vw"></canvas>
             <h1 id="texto_dashboard" class="texto_dashboard"></h1>
-            <canvas id="myChart2" style="display: none; position: relative; height:65vh; width:80vw"></canvas>
         </div>
+        <canvas id="myChart2" style="display: none; position: relative; height:65vh; width:80vw"></canvas>
     </div>
     <div class="footer">
         <img class="logo" src="Imagens/logoStarBooks.png">
@@ -52,7 +55,7 @@
     function mostrarGrafico1() {
         var idUser = sessionStorage.ID_USUARIO;
 
-        fetch(`/dashboard/mostrarGrafico1/${idUser}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/dashboard/mostrarGraficoLivros/${idUser}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -97,7 +100,7 @@
                             plugins: {
                                 legend: {
                                     labels: {
-                                        color: "white",
+                                        color: "yellow",
                                         font: {
                                             size: 18
                                         }
@@ -149,7 +152,61 @@
 
         var idUser = sessionStorage.ID_USUARIO;
 
-        fetch(`/dashboard/mostrarGrafico2/${idUser}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/dashboard/mostrarGraficoPizza/${idUser}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    //resposta.reverse();
+
+                    var acertos = resposta[0].acertos;
+                    var erros = 10 - acertos;
+                    console.log(resposta[0].acertos);
+
+                    console.log('----------------------------------------------')
+                    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+                    console.log(resposta)
+
+                    if (acertos != undefined) {
+                        div_graphQuiz.style.display = "block";
+                        texto_pizza.innerText = "Desempenho no Quiz";
+                    }
+
+                    const grafico2 = document.getElementById('myChartPizza');
+
+                    new Chart(grafico2, {
+                        type: 'pie',
+                        data: {
+                            labels: [
+                                'Acertos',
+                                'Erros'
+                            ],
+                            datasets: [{
+                                label: 'Quantidade',
+                                data: [acertos, erros],
+                                backgroundColor: [
+                                'blue',
+                                'red'
+                                ]
+                            }]
+                        }
+                    })
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+        console.log('iniciando plotagem do gráfico...');
+    }
+
+    function mostrarGrafico3() {
+
+        var idUser = sessionStorage.ID_USUARIO;
+
+        fetch(`/dashboard/mostrarGraficoQuiz/${idUser}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -177,14 +234,14 @@
                     console.log(acerto)
                     console.log('----------------------------------------------')
 
-                    const grafico2 = document.getElementById('myChart2');
+                    const grafico3 = document.getElementById('myChart2');
 
-                    if (momento.length >= 1) {
-                        texto_dashboard.innerText = "Seus acertos no Quiz";
-                        grafico2.style.display = "block";
+                    if (momento.length >= 2) {
+                        texto_dashboard.innerText = "Histórico de acertos no Quiz";
+                        grafico3.style.display = "block";
                     }
 
-                    new Chart(grafico2, {
+                    new Chart(grafico3, {
                         type: 'line',
                         data: {
                             labels: momento,

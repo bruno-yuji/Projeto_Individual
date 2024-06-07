@@ -69,11 +69,11 @@ body {
 }
 
 .sobre {
-    color: rgb(255, 255, 255);
+    color: rgb(190, 243, 255);
     font-weight: bolder;
     text-align: justify;
     width: 90%;
-    background: linear-gradient(rgba(116, 186, 255, 0.4), rgba(63, 137, 211, 0.4), rgba(116, 186, 255, 0.4), rgba(63, 137, 211, 0.4));
+    background: linear-gradient(rgba(87, 171, 255, 0.4), rgba(2, 73, 145, 0.4), rgba(116, 186, 255, 0.4), rgba(24, 99, 174, 0.4));
     border: 0.2rem solid rgb(84, 167, 251);
     padding: 1rem;
     box-shadow:
@@ -108,10 +108,10 @@ body {
     justify-content: center;
     border: 3px solid white;
     box-shadow:
-    0 0 0.3rem 0.2rem #fff,
-    0 0 0.8rem 0.4rem #fff;
+    0 0 0.3rem 0.1rem #fff,
+    0 0 0.8rem 0.1rem #fff;
     border-radius: 10px;
-    background: linear-gradient(black, rgb(54, 53, 53), rgb(92, 91, 91), rgb(58, 57, 57), rgb(54, 53, 53), rgb(92, 91, 91), rgb(33, 33, 33));
+    background: linear-gradient(rgb(45, 45, 45), rgb(54, 53, 53), rgb(92, 91, 91), rgb(58, 57, 57), rgb(54, 53, 53), rgb(92, 91, 91), rgb(33, 33, 33));
     width: 30rem;
     height: auto;
     padding: 1rem;
@@ -142,6 +142,7 @@ body {
     font-size: large;
     width: 10rem;
     cursor: pointer;
+    color: white;
 }
 
 .btn_cadastro {
@@ -314,7 +315,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #ebcb7b;
+    background: linear-gradient(45deg, #FEDB37, #FDB931, #9f7928, #8A6E2F, #FDB931, #9f7928, #8A6E2F);
     border: 0.3rem solid rgb(255, 168, 28);
     border-radius: 20px;
     padding: 1rem;
