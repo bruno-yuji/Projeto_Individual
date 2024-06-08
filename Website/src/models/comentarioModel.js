@@ -3,20 +3,21 @@ var database = require("../database/config");
 function listar(idPost) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
     var instrucaoSql = `
-        SELECT u.id, u.nome, f.caminhoFoto, c.texto, c.dtHora
+        SELECT u.id, u.nome, f.caminhoFoto, c.texto, DATE_FORMAT(c.dtHora, '%d/%c/%Y %H:%i') AS dtHora
             FROM usuario AS u 
-            JOIN caminhoFoto AS f ON f.idFoto = u.fkFoto
+            JOIN fotoPerfil AS f ON f.idFoto = u.fkFoto
             JOIN comentario AS c ON c.fkUsuario = u.id
-            WHERE c.fkPost = ${idPost};
+            WHERE c.fkPost = ${idPost}
+            ORDER BY dtHora;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
 function publicar(idPost, texto, idUsuario) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, descricao, idUsuario);
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", idPost, texto, idUsuario);
     var instrucaoSql = `
-        INSERT INTO post (fkUsuario, fkPost, texto) VALUES (${idUsuario}, ${idPost}, '${texto}');
+        INSERT INTO comentario (fkUsuario, fkPost, texto) VALUES (${idUsuario}, ${idPost}, '${texto}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

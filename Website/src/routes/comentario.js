@@ -3,7 +3,7 @@ var router = express.Router();
 
 var comentarioController = require("../controllers/comentarioController");
 
-router.get("/listar", function (req, res) {
+router.get("/listar/:idPost", function (req, res) {
     comentarioController.listar(req, res);
 });
 

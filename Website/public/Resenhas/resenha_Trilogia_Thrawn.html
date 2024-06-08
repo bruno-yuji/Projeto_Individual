@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Estilização/style.css">
     <script src="funcao.js"></script>
 </head>
-<body>
+<body onload="atualizarComentarios(1)">
     <div class="header">
         <img class="logo" src="../Imagens/logoStarBooks.png">
         <ul class="navbar">
@@ -19,7 +19,7 @@
             <li> | </li>
             <li> <a href="../perfil.html">Perfil</a> </li>
             <li> | </li>
-            <li> <a href="#">Sair</a> </li>
+            <li> <a href="../index.html">Sair</a> </li>
         </ul>
     </div>
     <div class="background centro">
@@ -32,6 +32,24 @@
                 <p>&emsp; Se você não sabe por onde iniciar a leitura entre tantos livros de Star Wars, recomendo dar uma chance para a Trilogia Thrawn. Inclusive, esta foi a primeira série de livros a ser lançada após os filmes originais, e dá continuidade a história do filme O Retorno do Jedi, sendo ambientada aproximadamente 5 anos depois. Caso você não tenha assistido os filmes originais, recomendo fortemente antes de iniciar esta leitura.</p>
                 <p>&emsp; Um aspecto interessante da saga é o vilão Thrawn, que dá o nome a trilogia. Apesar de ter uma patente bem elevada na hierarquia do império, ele não possui poderes e uma figura ameaçadora como o clássico Darth Vader. Ao invés disso, ele é especializado em estratégias, e apresenta um intelecto muito elevado que coloca os protagonistas em situações complicadas.</p>
                 <p>&emsp; Por fim, acho que vale mencionar a representação dos personagens nos livros da trilogia. O Autor consegue se manter bem fiel aos filmes, ao mesmo tempo em que demonstra o amadurecimento dos personagens de acordo com o tempo passado (foram 5 anos, afinal). Além disso, Timothy Zahn insere elementos que indicam os rumos do futuro das histórias de Star Wars, mas para não estragar a surpresa, você precisará ler os livros para descobrir!</p>
+            </div>
+            <div class="avisos">
+                <div id="alerta">
+                </div>
+                <div class="comments">
+                    <div class="div-form">
+                        <div id="form_postagem">
+                            <h2>Comentários:</h2>
+                            <span>Escreva um comentário!</span> <br>
+                            <textarea placeholder="máximo de 300 caracteres" name="texto" id="textarea_descricao" maxlength="300" rows="3"></textarea>
+                            <button class="perfil_button" onclick="publicar(1)">Enviar</button>
+                            <div class="div-results">
+                                <div id="feed_container" class="feed-container">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

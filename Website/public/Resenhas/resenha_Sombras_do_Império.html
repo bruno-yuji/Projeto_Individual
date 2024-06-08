@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Estilização/style.css">
     <script src="funcao.js"></script>
 </head>
-<body>
+<body onload="atualizarComentarios(6)">
     <div class="header">
         <img class="logo" src="../Imagens/logoStarBooks.png">
         <ul class="navbar">
@@ -19,7 +19,7 @@
             <li> | </li>
             <li> <a href="../perfil.html">Perfil</a> </li>
             <li> | </li>
-            <li> <a href="#">Sair</a> </li>
+            <li> <a href="../index.html">Sair</a> </li>
         </ul>
     </div>
     <div class="background centro">
@@ -32,6 +32,24 @@
                 <p>&emsp; Ao se lembrar dos filmes, você pode notar que a uma grande diferença no personagem Luke entre os filmes 5 e 6. Há um claro amadurecimento, e também um domínio maior da Força como Jedi. Em Sombras do Império, acompanhamos um pouco o seu treinamento e processo de amadurecimeto.</p>
                 <p>&emsp; Vale lembrar que neste período o Han Solo ainda está congelado, e uma das tramas principais do livro é o plano para resgatá-lo. Porém, o livro introduz também um novo personagem para cobrir a falta do Han, chamado Dash Rendar. É um personagem bem carismático, e que aparece para salvar o dia.</p>
                 <p>&emsp; O vilão principal, príncipe Xizor, também é bem interessante. Apesar de seu papel de antagonista, ele busca vingança contra outro grande antagonista: Darth Vader. Ele possui muita influência e riqueza, e utiliza de seu intelecto frio e calculista para conseguir o que quer. Inclusive, vale destacar a interação dele com a Leia, que demonstra claramente a força e vontade da personagem apresentada nos filmes.</p>
+            </div>
+            <div class="avisos">
+                <div id="alerta">
+                </div>
+                <div class="comments">
+                    <div class="div-form">
+                        <div id="form_postagem">
+                            <h2>Comentários:</h2>
+                            <span>Escreva um comentário!</span> <br>
+                            <textarea placeholder="máximo de 300 caracteres" name="texto" id="textarea_descricao" maxlength="300" rows="3"></textarea>
+                            <button class="perfil_button" onclick="publicar(6)">Enviar</button>
+                            <div class="div-results">
+                                <div id="feed_container" class="feed-container">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

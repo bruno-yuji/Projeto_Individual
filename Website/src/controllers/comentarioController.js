@@ -26,9 +26,9 @@ function listar(req, res) {
     }
 
 function publicar(req, res) {
+    var idUsuario = req.params.idUsuario;
     var idPost = req.body.idPost;
     var texto = req.body.texto;
-    var idUsuario = req.params.idUsuario;
 
     if (idPost == undefined) {
         res.status(400).send("O idPost está indefinido!");

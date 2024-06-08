@@ -178,7 +178,7 @@ body {
 
 .btn_login {
     font-weight: bolder;
-    background: linear-gradient(rgb(7, 67, 36), rgb(22, 112, 37));
+    background: linear-gradient( rgb(62, 126, 255), rgb(17, 6, 115));
     padding: 0.3rem;
 }
 
@@ -262,6 +262,12 @@ body {
     width: 100%;
     width: auto;
     border: 0.5rem solid black;
+}
+
+.img_comment {
+    border-radius: 100%;
+    width: 4rem;
+    margin-right: 0.5rem;
 }
 
 #div_texto_quiz {
@@ -371,6 +377,7 @@ body {
 .card_resenha {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-left: 4rem;
     background-color: #ddbb65;
     width: 70vw;
@@ -382,6 +389,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    border-bottom: 0.2rem solid rgb(37, 37, 37);
 }
 
 .conteudo_resenha h1 {
@@ -418,6 +426,36 @@ body {
 .btn_voltar:hover {
     transition: transform 0.2s;
     transform: scale(105%, 105%);
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.comentario {
+    width: 45vw;
+    background-color: rgb(213, 189, 157);
+    margin-bottom: 1.3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.comentario b {
+    margin-top: 2rem;
+}
+
+#textarea_descricao {
+    width: 35rem;
+    font-size: 1.5rem;
+}
+
+.usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .tela_perfil {

@@ -62,6 +62,30 @@ FOREIGN KEY (fkLivroFavorito) REFERENCES livro(idLivro),
 FOREIGN KEY (fkFoto) REFERENCES fotoPerfil(idFoto)
 );
 
+CREATE TABLE post (
+idPost INT PRIMARY KEY auto_increment,
+nomePost VARCHAR(45)
+);
+
+INSERT INTO post (nomePost) VALUES
+	('Trilogia Thrawn'),
+	('Trilogia Darth Bane'),
+	('Coleção Legends'),
+	('Secrets of the Galaxy'),
+	('Troopers da Morte'),
+	('Sombras do Império');
+    
+CREATE TABLE comentario (
+idComentario INT AUTO_INCREMENT,
+fkUsuario INT,
+fkPost INT,
+PRIMARY KEY (idComentario, fkUsuario, fkPost),
+FOREIGN KEY (fkUsuario) REFERENCES usuario (id),
+FOREIGN KEY (fkPost) REFERENCES post (idPost),
+texto VARCHAR(300),
+dtHora DATETIME default current_timestamp()
+);
+
 CREATE TABLE tentativaQuiz (
 idTentativa INT PRIMARY KEY AUTO_INCREMENT,
 fkUsuario INT,
@@ -74,8 +98,3 @@ dtTentativa DATETIME default current_timestamp()
 select * from usuario;
 select * from tentativaQuiz;
 select * from livro;
-
-SELECT id, nome, email, caminhoFoto, titulo, ifnull(fkLivroFavorito, 1) FROM usuario 
-JOIN fotoPerfil ON idFoto = fkFoto 
-JOIN livro ON fkLivroFavorito = idLivro 
-WHERE email = 'teste@gmail.com' AND senha = '1234567@';

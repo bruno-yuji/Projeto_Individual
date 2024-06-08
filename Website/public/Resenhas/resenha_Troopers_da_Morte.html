@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Estilização/style.css">
     <script src="funcao.js"></script>
 </head>
-<body>
+<body onload="atualizarComentarios(5)">
     <div class="header">
         <img class="logo" src="../Imagens/logoStarBooks.png">
         <ul class="navbar">
@@ -19,7 +19,7 @@
             <li> | </li>
             <li> <a href="../perfil.html">Perfil</a> </li>
             <li> | </li>
-            <li> <a href="#">Sair</a> </li>
+            <li> <a href="../index.html">Sair</a> </li>
         </ul>
     </div>
     <div class="background centro">
@@ -32,6 +32,24 @@
                 <p>&emsp; O livro é ambientado apenas um ano antes do filme Uma Nova Esperança, e trás alguns personagens novos e outros bem conhecidos. Estes últimos não sendo ninguém menos que Han Solo e Chewbacca. Quem diria que eles enfrentaram zumbis antes de conhecer Luke? Mas este fato acaba dando o spoiler de que eles conseguem sobreviver.</p>
                 <p>&emsp; Alguns podem não sentir medo, mas acredito que a tensão é construída de uma forma ótima. O vírus zumbi que se espalha na nava vai mostrando seus efeitos de forma bem gradual, e contribui para a sensação de confusão e certo medo. Chega um ponto em que a situação fica feia e parece não haver saída. E para piorar, os protagonistas são dois jovens sem muita experiência.</p>
                 <p>&emsp; Este é talvez o único livro de Star Wars lançado com uma temática mais voltada ao terror, então ele acaba sendo bem diferenciado dos outros livros. Diferente de histórias zumbi padrão, ele se utiliza da temática de espaço para confinar os personagens em um lugar realmente sem saída.</p>
+            </div>
+            <div class="avisos">
+                <div id="alerta">
+                </div>
+                <div class="comments">
+                    <div class="div-form">
+                        <div id="form_postagem">
+                            <h2>Comentários:</h2>
+                            <span>Escreva um comentário!</span> <br>
+                            <textarea placeholder="máximo de 300 caracteres" name="texto" id="textarea_descricao" maxlength="300" rows="3"></textarea>
+                            <button class="perfil_button" onclick="publicar(5)">Enviar</button>
+                            <div class="div-results">
+                                <div id="feed_container" class="feed-container">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

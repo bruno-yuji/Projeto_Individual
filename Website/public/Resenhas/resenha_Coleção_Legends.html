@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Estilização/style.css">
     <script src="funcao.js"></script>
 </head>
-<body>
+<body onload="atualizarComentarios(3)">
     <div class="header">
         <img class="logo" src="../Imagens/logoStarBooks.png">
         <ul class="navbar">
@@ -19,7 +19,7 @@
             <li> | </li>
             <li> <a href="../perfil.html">Perfil</a> </li>
             <li> | </li>
-            <li> <a href="#">Sair</a> </li>
+            <li> <a href="../index.html">Sair</a> </li>
         </ul>
     </div>
     <div class="background centro">
@@ -32,6 +32,24 @@
                 <p>&emsp; A Ascensão e a Queda de Darth Vader conta um pouco sobre o personagem deste quando ele era uma criança até o momento de sua morte. Acredito que seja bem interessante observar a história do ponto de vista do vilão, algo abordado raramente nos livros de Star Wars (se você gosta deste tema, recomendo olhar a Trilogia Darth Bane). Para aqueles mais curiosos, o livro esclarece uma dúvida que surgiu no final do filme 6, O Retorno do Jedi, em relação ao personagem.</p>
                 <p>&emsp; O livro A Origem e a Lenda de Obi Wan Kenobi aborda o crescimento do personagem desde que era um aprendiz até se tornar um importante mestre. É interessante também o fato de que o livro aborda o período pós Guerras Clônicas, entre o filme 3 e 4 (há um intervalo de 19 anos de história entre eles), e o fato de que Obi Wan sempre esteve observando e cuidando de Luke, ainda que mantendo distância.</p>
                 <p>&emsp; Falando no Luke, não poderia faltar seu livro. Em A Vida de Luke Skywalker, como o próprio nome já diz, acompanhamos o personagem desde sua vida como fazendeiro até se tornar um cavaleiro jedi, e até momentos após o filme 6, onde cronologicamente se iniciaria a Trilogia Thrawn (recomendo ver meu post sobre ela). Para concluir, caso você esteja em dúvida do porquê destes três livros serem agrupados em uma coleção, o motivo está no fato da grande interação destes três personagens, bem como um cruzamento entre as histórias de seus livros.</p>
+            </div>
+            <div class="avisos">
+                <div id="alerta">
+                </div>
+                <div class="comments">
+                    <div class="div-form">
+                        <div id="form_postagem">
+                            <h2>Comentários:</h2>
+                            <span>Escreva um comentário!</span> <br>
+                            <textarea placeholder="máximo de 300 caracteres" name="texto" id="textarea_descricao" maxlength="300" rows="3"></textarea>
+                            <button class="perfil_button" onclick="publicar(3)">Enviar</button>
+                            <div class="div-results">
+                                <div id="feed_container" class="feed-container">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
