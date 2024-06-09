@@ -5,7 +5,7 @@ body {
 
 .header {
     display: flex;
-    background-color: rgb(36, 36, 36);
+    background: linear-gradient(rgb(0, 0, 0), rgb(51, 51, 51), rgb(88, 87, 87), rgb(0, 0, 0));
     flex-direction: row;
     justify-content: space-between;
     padding-left: 3vw;
@@ -57,11 +57,58 @@ body {
 .content {
     color: white;
     text-align: justify;
-    width: 50%;
+    margin-top: -14.5rem;
+    margin-bottom: -6rem;
+    transform-origin: 50% 100%;
+    perspective: 40vw;
+    }
+    
+.scroll {
+    width: 60vw;
+    height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transform: rotateX(45deg);
+    }
+    
+.animacao {   
+    animation: starwars 120s linear;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+.scroll::-webkit-scrollbar-track {
+    background-color: black;
+}
+   
+.scroll::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255);
+}
+  
+/*.content ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}*/
+
+@keyframes starwars {
+    0% {
+        top: -1px;
+        transform: rotateX(20deg)  translateY(0);
+    }
+    100% { 
+        top: -1px;
+        transform: rotateX(25deg) translateY(-2500px);
+    }
 }
 
 .content h1 {
     text-align: center;
+    font-size: 5rem;
+}
+
+.content h2 {
+    font-size: 3.5rem;
 }
 
 .intro {
@@ -83,7 +130,7 @@ body {
 }
 
 .footer {
-    background: linear-gradient(rgb(68, 67, 67), rgb(88, 85, 85));
+    background: linear-gradient(rgb(61, 61, 61), rgb(127, 125, 125), rgb(138, 136, 136), rgb(61, 61, 61));
     border-top: 0.6vh solid rgb(253, 206, 54);
     padding-bottom: 10px;
     display: flex;
