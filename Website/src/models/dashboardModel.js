@@ -23,12 +23,20 @@ function mostrarGraficoPizza(idUser) {
     return database.executar(instrucaoSql);
 }
 
+function pegarMediaUsuarios(idUser) {
+
+    var instrucaoSql = `SELECT round(avg(acertos), 2) AS mediaAcertos FROM tentativaQuiz WHERE fkUsuario != ${idUser};`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function mostrarGraficoQuiz(idUser, limite_linhas) {
 
     var instrucaoSql = `SELECT acertos, DATE_FORMAT(dtTentativa, '%d/%c/%Y %H:%i') AS dtTentativa FROM tentativaQuiz
                             JOIN usuario ON id = fkUsuario
                             WHERE id = ${idUser}
-                            LIMIT ${limite_linhas};`;
+                            ORDER BY dtTentativa DESC LIMIT ${limite_linhas};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -37,5 +45,6 @@ function mostrarGraficoQuiz(idUser, limite_linhas) {
 module.exports = {
     mostrarGraficoLivros,
     mostrarGraficoPizza,
+    pegarMediaUsuarios,
     mostrarGraficoQuiz
 }

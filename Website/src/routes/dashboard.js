@@ -11,6 +11,10 @@ router.get("/mostrarGraficoPizza/:idUser", function (req, res) {
     dashboardController.mostrarGraficoPizza(req, res);
 })
 
+router.get("/pegarMediaUsuarios/:idUser", function (req, res) {
+    dashboardController.pegarMediaUsuarios(req, res);
+})
+
 router.get("/mostrarGraficoQuiz/:idUser", function (req, res) {
     dashboardController.mostrarGraficoQuiz(req, res);
 })

@@ -36,6 +36,25 @@ function mostrarGraficoPizza(req, res) {
     });
 }
 
+function pegarMediaUsuarios(req, res) {
+
+    var idUser = req.params.idUser;
+
+    console.log(`Recuperando média de acertos dos usuários`);
+
+    dashboardModel.pegarMediaUsuarios(idUser).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function mostrarGraficoQuiz(req, res) {
 
     const limite_linhas = 10;
@@ -60,5 +79,6 @@ function mostrarGraficoQuiz(req, res) {
 module.exports = {
     mostrarGraficoLivros,
     mostrarGraficoPizza,
+    pegarMediaUsuarios,
     mostrarGraficoQuiz
 }

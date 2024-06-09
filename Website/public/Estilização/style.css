@@ -57,18 +57,18 @@ body {
 .content {
     color: white;
     text-align: justify;
-    margin-top: -14.5rem;
-    margin-bottom: -6rem;
+    /*margin-top: -10.5rem;
+    margin-bottom: -2rem;
     transform-origin: 50% 100%;
-    perspective: 40vw;
+    perspective: 20vw;*/
     }
-    
+/*   
 .scroll {
-    width: 60vw;
-    height: 80vh;
+    width: 50vw;
+    height: 70vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    transform: rotateX(45deg);
+    transform: rotateX(30deg);
     }
     
 .animacao {   
@@ -87,9 +87,9 @@ body {
     background: rgb(255, 255, 255);
 }
   
-/*.content ::-webkit-scrollbar-thumb:hover {
+.content ::-webkit-scrollbar-thumb:hover {
     background: #b30000; 
-}*/
+}
 
 @keyframes starwars {
     0% {
@@ -101,7 +101,7 @@ body {
         transform: rotateX(25deg) translateY(-2500px);
     }
 }
-
+*/
 .content h1 {
     text-align: center;
     font-size: 5rem;
@@ -211,10 +211,10 @@ body {
     width: 20vw;
     position: fixed;
     border-radius: 4px;
-    border: #2173f6 0.2rem solid;
+    border: #ffffff 0.2rem solid;
     box-shadow:
-    0 0 0.3rem 0.2rem #2173f6,
-    0 0 0.8rem 0.3rem #2173f6;
+    0 0 0.3rem 0.2rem #ffffff,
+    0 0 0.8rem 0.3rem #f4f4f4;
     padding: 10px;
 }
   
@@ -397,13 +397,6 @@ body {
     height: 1.2rem;
 }
 
-/*.alternativas input[type=radio] + label {
-    display: inline-block;
-    margin: 1rem;
-    background-color: #fff;
-    border: 3px solid black;
-}
-*/
 .btn_quiz {
     border: 0.15rem solid rgb(255, 255, 255);
     border-radius: 10px;
@@ -411,14 +404,14 @@ body {
     cursor: pointer;
     font-size: 1.8rem;
     color: white;
-    background-color: rgb(0, 0, 0);
+    background: linear-gradient(black, rgb(155, 155, 155));
 }
 
-.texto_dashboard {
-    color: white;
-    text-align: center;
-    text-decoration: underline;
-    margin-top: 5rem;
+.resultado {
+    background: linear-gradient(rgb(153, 153, 153), white, rgb(153, 153, 153));
+    padding: 0.5rem;
+    font-size: 2rem;
+    margin-top: -2rem;
 }
 
 .card_resenha {
@@ -497,6 +490,39 @@ body {
 #textarea_descricao {
     width: 35rem;
     font-size: 1.5rem;
+}
+
+#div_graphQuiz {
+    background: linear-gradient(rgb(101, 98, 98), rgb(66, 64, 64), rgb(27, 27, 27));
+    box-shadow:
+    0 0 10px 0.3rem #a3a3a3,
+    0 0 20px 0.3rem #fff;
+    border: 0.2rem solid rgb(128, 128, 128);
+    opacity: 0.85;
+    padding: 4rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    height: 70vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_dashboard {
+    background-color: #fff;
+    margin: 1.5rem;
+    border: 0.2rem solid rgb(228, 218, 218);
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    border-radius: 1rem;
 }
 
 .usuario {

@@ -26,14 +26,15 @@
     </div>
     <div class="background centro">
         <div>
-            <h1 class="texto_dashboard">Livros favoritados por usuários</h1>
             <canvas id="myChart" style="position: relative; height:65vh; width:80vw"></canvas>
             <hr style="height:0.1rem; color:gray; background-color:gray">
         </div>
         <div id="div_graphQuiz" style="display: none;">
-            <h1 id="texto_pizza" class="texto_dashboard"></h1>
             <canvas id="myChartPizza" style="position: relative; width:30vw"></canvas>
-            <h1 id="texto_dashboard" class="texto_dashboard"></h1>
+            <div class="cards">
+                <span id="card_acertosUser" class="card_dashboard"></span>
+                <span id="card_media" class="card_dashboard"></span>
+            </div>
         </div>
         <canvas id="myChart2" style="display: none; position: relative; height:65vh; width:80vw"></canvas>
     </div>
@@ -52,8 +53,9 @@
 </html>
 
 <script>
+    var idUser = sessionStorage.ID_USUARIO;
+
     function mostrarGrafico1() {
-        var idUser = sessionStorage.ID_USUARIO;
 
         fetch(`/dashboard/mostrarGraficoLivros/${idUser}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -98,6 +100,14 @@
                         },
                         options: {
                             plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Livros favoritados por usuários',
+                                    color: 'yellow',
+                                    font: {
+                                        size: 30
+                                    }
+                                },
                                 legend: {
                                     labels: {
                                         color: "yellow",
@@ -148,9 +158,32 @@
         console.log('iniciando plotagem do gráfico...');
     }
 
+    function pegarMediaUsers() {
+
+        fetch(`/dashboard/pegarMediaUsuarios/${idUser}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    console.log(resposta)
+                    var mediaAcertos = resposta[0].mediaAcertos;
+
+                    if (mediaAcertos != undefined) {
+                        card_media.innerHTML = `Média de acertos dos outros usuários: <br> ${mediaAcertos} `;
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
     function mostrarGrafico2() {
 
-        var idUser = sessionStorage.ID_USUARIO;
+        pegarMediaUsers();
 
         fetch(`/dashboard/mostrarGraficoPizza/${idUser}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -167,8 +200,8 @@
                     console.log(resposta)
 
                     if (acertos != undefined) {
-                        div_graphQuiz.style.display = "block";
-                        texto_pizza.innerText = "Desempenho no Quiz";
+                        div_graphQuiz.style.display = "flex";
+                        card_acertosUser.innerHTML = `Acertos na tentativa mais recente: <br> ${acertos}`;
                     }
 
                     const grafico2 = document.getElementById('myChartPizza');
@@ -184,10 +217,30 @@
                                 label: 'Quantidade',
                                 data: [acertos, erros],
                                 backgroundColor: [
-                                'blue',
-                                'red'
+                                'rgb(85, 163, 242)',
+                                'rgb(242, 85, 85)'
                                 ]
                             }]
+                        },
+                        options: {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Desempenho no Quiz',
+                                    color: 'yellow',
+                                    font: {
+                                        size: 25
+                                    }
+                                },
+                                legend: {
+                                    labels: {
+                                        color: "yellow",
+                                        font: {
+                                            size: 18
+                                        }
+                                    }
+                                }
+                            }
                         }
                     })
                 });
@@ -204,13 +257,11 @@
 
     function mostrarGrafico3() {
 
-        var idUser = sessionStorage.ID_USUARIO;
-
         fetch(`/dashboard/mostrarGraficoQuiz/${idUser}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    //resposta.reverse();
+                    resposta.reverse();
 
                     let momento = [];
                     let acerto = [];
@@ -237,7 +288,6 @@
                     const grafico3 = document.getElementById('myChart2');
 
                     if (momento.length >= 2) {
-                        texto_dashboard.innerText = "Histórico de acertos no Quiz";
                         grafico3.style.display = "block";
                     }
 
@@ -256,9 +306,17 @@
                         },
                         options: {
                             plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Histórico de acertos no Quiz',
+                                    color: 'yellow',
+                                    font: {
+                                        size: 30
+                                    }
+                                },
                                 legend: {
                                     labels: {
-                                        color: "white",
+                                        color: "yellow",
                                         font: {
                                             size: 18
                                         }
