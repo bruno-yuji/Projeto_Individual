@@ -78,8 +78,16 @@
 </html>
 
 <script>
+    var status_select_imagens = 0;
+
     function mostrar_imagens() {
-        imagens.style.display = "block";
+        if (status_select_imagens == 0) {
+            status_select_imagens = 1;
+            imagens.style.display = "block";
+        } else {
+            status_select_imagens = 0;
+            imagens.style.display = "none";
+        }
     }
 
     function mostrar() {
