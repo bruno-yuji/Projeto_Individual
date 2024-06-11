@@ -13,18 +13,27 @@
     <div class="header">
         <img class="logo" src="Imagens/logoStarBooks.png">
         <ul class="navbar">
+            <li> <a href="perfil.html">Perfil</a> </li>
+            <li> | </li>
             <li> <a href="livros.html">Livros</a> </li>
             <li> | </li>
             <li> <a href="quiz.html">Quiz</a> </li>
             <li> | </li>
             <li class="atual"> <a href="dashboard.html">Dashboard</a> </li>
             <li> | </li>
-            <li> <a href="perfil.html">Perfil</a> </li>
-            <li> | </li>
-            <li> <a href="index.html">Sair</a> </li>
+            <li> <a onclick="caixa_sair.style.display = 'flex'">Sair</a> </li>
         </ul>
     </div>
     <div class="background centro">
+        <div id="caixa_sair" class="sair" style="display: none;">
+            <div id="div_sair">
+                <span>Deseja mesmo sair?</span>
+                <div>
+                    <button onclick="window.location='index.html'">Sim</button>
+                    <button onclick="caixa_sair.style.display='none'">Não</button>
+                </div>
+            </div>
+        </div>
         <div>
             <canvas id="myChart" style="position: relative; height:65vh; width:80vw"></canvas>
             <hr style="height:0.1rem; color:gray; background-color:gray">
@@ -227,14 +236,14 @@
                                 title: {
                                     display: true,
                                     text: 'Desempenho no Quiz',
-                                    color: 'yellow',
+                                    color: 'white',
                                     font: {
                                         size: 25
                                     }
                                 },
                                 legend: {
                                     labels: {
-                                        color: "yellow",
+                                        color: "white",
                                         font: {
                                             size: 18
                                         }

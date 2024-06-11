@@ -1,3 +1,5 @@
+/*----------Geral----------*/ 
+
 body {
     margin: 0;
     padding: 0;
@@ -41,9 +43,11 @@ body {
     color: rgb(255, 174, 0);
     text-decoration: underline;
     font-weight: bolder;
+    cursor: pointer;
 }
 
-.atual {
+.header .navbar .atual a{
+    color: orange ;
     font-weight: bolder;
     text-decoration: underline;
 }
@@ -55,61 +59,74 @@ body {
     background-image: url("../Imagens/Background.png");
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
 }
 
 .centro {
     align-items: center;
 }
 
+.footer {
+    background: linear-gradient(rgb(61, 61, 61), rgb(127, 125, 125), rgb(138, 136, 136), rgb(61, 61, 61));
+    border-top: 0.6vh solid rgb(253, 206, 54);
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 30vh;
+}
+
+.contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lista_contatos {
+    text-align: left;
+}
+
+.sair {
+    width: 98vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#div_sair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 12vw;
+    background-color: white;
+    margin-top: -4.5rem;
+    border: 0.1rem solid rgb(122, 122, 122);
+    border-radius: 0.4rem;
+    padding: 1rem 0 1rem 0;
+    font-size: 1.1rem;
+}
+
+#div_sair div {
+    width: 7vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+#div_sair button {
+    background-color: #bfbebe;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 0.2rem;
+    font-size: 1rem;
+}
+
+/*----------Home----------*/ 
+
 .content {
     color: rgb(250, 208, 0);
     text-align: justify;
-    /*margin-top: -10.5rem;
-    margin-bottom: -2rem;
-    transform-origin: 50% 100%;
-    perspective: 20vw;*/
-    }
-/*   
-.scroll {
-    width: 50vw;
-    height: 70vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    transform: rotateX(30deg);
-    }
-    
-.animacao {   
-    animation: starwars 120s linear;
 }
 
-.scroll::-webkit-scrollbar {
-    width: 0px;
-  }
-  
-.scroll::-webkit-scrollbar-track {
-    background-color: black;
-}
-   
-.scroll::-webkit-scrollbar-thumb {
-    background: rgb(255, 255, 255);
-}
-  
-.content ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
-}
-
-@keyframes starwars {
-    0% {
-        top: -1px;
-        transform: rotateX(20deg)  translateY(0);
-    }
-    100% { 
-        top: -1px;
-        transform: rotateX(25deg) translateY(-2500px);
-    }
-}
-*/
 .content h1 {
     text-align: center;
     font-size: 3.5rem;
@@ -150,6 +167,7 @@ body {
     background-color: rgb(0, 153, 255);
     cursor: pointer;
     border-radius: 0.5rem;
+    font-weight: bolder;
 }
 
 .btn_home:hover {
@@ -168,6 +186,8 @@ body {
     height: 45vh;
     border: 0.2rem solid white;
 }
+
+/*----------Sobre----------*/ 
 
 .sobre {
     color: rgb(190, 243, 255);
@@ -213,26 +233,7 @@ body {
     border-radius: 50%;
 }
 
-.footer {
-    background: linear-gradient(rgb(61, 61, 61), rgb(127, 125, 125), rgb(138, 136, 136), rgb(61, 61, 61));
-    border-top: 0.6vh solid rgb(253, 206, 54);
-    padding-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    height: 30vh;
-}
-
-.contato {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.lista_contatos {
-    text-align: left;
-}
+/*----------Cadastro e Login----------*/ 
 
 .caixa {
     display: flex;
@@ -264,7 +265,7 @@ body {
 }
 
 .formulario span a {
-    color: rgb(96, 96, 237);
+    color: rgb(122, 122, 255);
 }
 
 .botao {
@@ -318,6 +319,8 @@ body {
     font-weight: bolder;
     text-align: center;
 }
+
+/*----------Livros----------*/ 
 
 .legends {
     display: flex;
@@ -375,109 +378,6 @@ body {
     width: 100%;
     width: auto;
     border: 0.5rem solid black;
-}
-
-.img_comment {
-    border-radius: 100%;
-    width: 4rem;
-    margin-right: 0.5rem;
-}
-
-#div_texto_quiz {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background: linear-gradient(rgb(0, 0, 0), rgb(55, 55, 55), rgb(74, 74, 74), rgb(55, 55, 55), rgb(0, 0, 0));
-    padding: 3rem;
-    border-radius: 5px;
-    border: 0.1rem solid rgb(159, 159, 159);
-}
-
-.titulo {
-    text-decoration: underline;
-    font-size: 3.5rem;
-    color: yellow;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.texto_quiz {
-    display: flex;
-    color: yellow;
-    text-align: center;
-    width: 50vw;
-    font-family: sans-serif;
-}
-
-.botao2 {
-    align-self: center;
-    margin-top: 1rem;
-    border: 0.2rem solid rgb(249, 217, 104);
-    background: linear-gradient(yellow, orange, yellow, orange);
-    border-radius: 50px;
-    width: 13rem;
-    height: 4rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2rem;
-    cursor: pointer;
-    box-shadow: 0px 0px 1rem 0.1rem rgb(249, 186, 104);
-}
-
-.botao2:hover {
-    transition: transform 0.2s;
-    transform: scale(105%, 105%);
-  }
-
-.questao {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: linear-gradient(45deg, #FEDB37, #FDB931, #9f7928, #8A6E2F, #FDB931, #9f7928, #8A6E2F);
-    border: 0.3rem solid rgb(255, 168, 28);
-    border-radius: 20px;
-    padding: 1rem;
-    width: 45vw;
-}
-
-.botoes_quiz {
-    width: 20rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.questao img {
-    height: 10rem;
-}
-
-.alternativas {
-    width: 35vw;
-    justify-items: flex-start;
-    font-size: 1.3rem;
-}
-
-.alternativas input[type=radio] {
-    width: 1.2rem;
-    height: 1.2rem;
-}
-
-.btn_quiz {
-    border: 0.15rem solid rgb(255, 255, 255);
-    border-radius: 10px;
-    margin-top: 1rem;
-    cursor: pointer;
-    font-size: 1.8rem;
-    color: white;
-    background: linear-gradient(black, rgb(155, 155, 155));
-}
-
-.resultado {
-    background: linear-gradient(rgb(153, 153, 153), white, rgb(153, 153, 153));
-    padding: 0.5rem;
-    font-size: 2rem;
-    margin-top: -2rem;
 }
 
 .card_resenha {
@@ -558,6 +458,113 @@ body {
     font-size: 1.5rem;
 }
 
+.img_comment {
+    border-radius: 100%;
+    width: 4rem;
+    margin-right: 0.5rem;
+}
+
+/*----------Quiz----------*/ 
+
+#div_texto_quiz {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(rgb(0, 0, 0), rgb(55, 55, 55), rgb(74, 74, 74), rgb(55, 55, 55), rgb(0, 0, 0));
+    padding: 3rem;
+    border-radius: 5px;
+    border: 0.1rem solid rgb(159, 159, 159);
+}
+
+.titulo {
+    text-decoration: underline;
+    font-size: 3.5rem;
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.texto_quiz {
+    display: flex;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 50vw;
+    font-family: sans-serif;
+}
+
+.botao2 {
+    align-self: center;
+    margin-top: 1rem;
+    border: 0.2rem solid rgb(249, 217, 104);
+    background: linear-gradient(yellow, orange, yellow, orange);
+    border-radius: 50px;
+    width: 13rem;
+    height: 4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0px 0px 1rem 0.1rem rgb(249, 186, 104);
+}
+
+.botao2:hover {
+    transition: transform 0.2s;
+    transform: scale(105%, 105%);
+  }
+
+.questao {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(45deg, #FEDB37, #FDB931, #9f7928, #8A6E2F, #FDB931, #9f7928, #8A6E2F);
+    border: 0.3rem solid rgb(255, 168, 28);
+    border-radius: 20px;
+    padding: 1rem;
+    width: 45vw;
+}
+
+.botoes_quiz {
+    width: 20rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.questao img {
+    height: 10rem;
+}
+
+.alternativas {
+    width: 35vw;
+    justify-items: flex-start;
+    font-size: 1.3rem;
+}
+
+.alternativas input[type=radio] {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.btn_quiz {
+    border: 0.15rem solid rgb(255, 255, 255);
+    border-radius: 10px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: white;
+    background: linear-gradient(black, rgb(155, 155, 155));
+}
+
+.resultado {
+    background: linear-gradient(rgb(153, 153, 153), white, rgb(153, 153, 153));
+    padding: 0.5rem;
+    font-size: 2rem;
+    margin-top: -2rem;
+}
+
+/*----------Dashboard----------*/
+
 #div_graphQuiz {
     background: linear-gradient(rgb(101, 98, 98), rgb(66, 64, 64), rgb(27, 27, 27));
     box-shadow:
@@ -590,6 +597,8 @@ body {
     font-size: 1.7rem;
     border-radius: 1rem;
 }
+
+/*----------Perfil----------*/
 
 .usuario {
     display: flex;
