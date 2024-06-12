@@ -135,7 +135,7 @@ body {
 
 .home_card {
     background-color: rgb(30, 30, 30);
-    height: 60vh;
+    height: fit-content;
     width: 80vw;
     padding: 4rem;
     display: flex;
@@ -147,7 +147,7 @@ body {
 .home_context {
     margin-top: 4rem;
     flex-direction: column;
-    height: 100vh;
+    height: fit-content;
 }
 
 .home_context div {

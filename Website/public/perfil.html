@@ -6,7 +6,7 @@
     <title>Perfil</title>
     <link rel="stylesheet" href="./Estilização/style.css">
 </head>
-<body onload="mostrar()">
+<body onload="mostrar()"> <!--Ao carregar a página, essa função é chamada para mostrar os dados do usuário (a função está definida na linha 106)-->
     <div class="header">
         <img class="logo" src="Imagens/logoStarBooks.png">
         <ul class="navbar">
@@ -31,12 +31,13 @@
                 </div>
             </div>
         </div>
-        <div class="tela_perfil">
-            <div class="imagens_perfil">
-                <img id="img_perfil" src="" class="perfil">
-                <button class="perfil_button" onclick="mostrar_imagens()">Trocar foto de perfil</button>
-                <div class="lista_imagens" id="imagens">
-                    <img onclick="trocar(this.id, this.src)" id="1" src="Imagens/Luke.png">
+        <div class="tela_perfil"> <!--Div que representa a "caixa" da tela de perfil-->
+            <div class="imagens_perfil"> <!--Div que representa a seção relacionada a foto de perfil-->
+                <img id="img_perfil" src="" class="perfil"> <!--Imagem de perfil do usuário, inicialmente vazia-->
+                <button class="perfil_button" onclick="mostrar_imagens()">Trocar foto de perfil</button> <!--Este botão chama uma função (linha 96) que mostra a lista de imagens disponíveis-->
+                <div class="lista_imagens" id="imagens"> <!--Div com seleção de imagens, inicialmente com display: none;-->
+                    <!--Cada imagem abaixo, ao ser clicada, chama a função da linha 130-->
+                    <img onclick="trocar(this.id, this.src)" id="1" src="Imagens/Luke.png"> 
                     <img onclick="trocar(this.id, this.src)" id="2" src="Imagens/Boba_Fett.png">
                     <img onclick="trocar(this.id, this.src)" id="3" src="Imagens/C3PO.png">
                     <img onclick="trocar(this.id, this.src)" id="4" src="Imagens/Thrawn.png">
@@ -47,11 +48,14 @@
                     <img onclick="trocar(this.id, this.src)" id="9" src="Imagens/Yoda.png">
                 </div>
             </div>
-            <h1>Nome: <span id="nome_user"></span> <img class="edit" onclick="editar()" src="./Imagens/edit_icon.png"> <br> <br>
+            <!--Abaixo defini com h1 (mas poderia ser uma div) a seção de informações do usuário-->
+            <h1>Nome: <span id="nome_user"></span> <!--É importante definir um id aqui, para referenciar os dados do usuário-->
+                <img class="edit" onclick="editar()" src="./Imagens/edit_icon.png"> <br> <br> <!--Função de editar nome (linha 189)-->
                 <div class="edicao" id="div_edicao"></div>
-                E-mail: <span id="email_user"></span> <br> <br>
-                Livro favorito: <span id="livro_favorito"></span> <br>
-                <select id="select_livro">
+                E-mail: <span id="email_user"></span> <br> <br> <!--É importante definir um id aqui, para referenciar os dados do usuário-->
+                Livro favorito: <span id="livro_favorito"></span> <br> <!--Mesma coisa aqui-->
+                <select id="select_livro"> <!--Select com todas as opções de livro para serem favoritados-->
+                    <!--O value em cada option representa o id do livro no meu banco de dados-->
                     <option value="1">Escolha outro livro</option>
                     <option value="2">Herdeiro do Império</option>
                     <option value="3">Ascensão da Força Sombria</option>
@@ -69,7 +73,7 @@
                     <option value="15">Troopers da Morte</option>
                     <option value="16">Sombras do Império</option>
                 </select>
-                <button class="perfil_button" onclick="favoritar()">Favoritar</button>
+                <button class="perfil_button" onclick="favoritar()">Favoritar</button> <!--Chama a função para favoritar (linha 157)-->
             </h1>
         </div>
     </div>
@@ -87,28 +91,31 @@
 </html>
 
 <script>
-    var status_select_imagens = 0;
+    var status_select_imagens = 0; //Valor que indica se a lista de imagens foi aberta ou não. Valor 0 indica que não foi aberta
 
-    function mostrar_imagens() {
-        if (status_select_imagens == 0) {
-            status_select_imagens = 1;
-            imagens.style.display = "block";
-        } else {
-            status_select_imagens = 0;
-            imagens.style.display = "none";
+    function mostrar_imagens() { // Função para mostrar a lista de imagens disponíveis
+        if (status_select_imagens == 0) { //Verifica se a lista de imagens está fechada
+            status_select_imagens = 1; // Atualiza o valor para 1, indicando que foi aberta
+            imagens.style.display = "block"; // Mostra a div com as imagens (antes o display era none)
+        } else { // caso a seleção esteja aberta...
+            status_select_imagens = 0; // muda o status para fechada
+            imagens.style.display = "none"; // e oculta a div com display: none
         }
     }
 
-    function mostrar() {
-        var email = sessionStorage.EMAIL_USUARIO;
-        var nome = sessionStorage.NOME_USUARIO;
-        var foto = sessionStorage.CAMINHO_FOTO;
-        var livroFavorito = sessionStorage.LIVRO_FAVORITO;
-        var livro = document.getElementById("livro_favorito");
+    function mostrar() { // função que mostra os dados do usuário, é chamada no carregamento da página
+        var email = sessionStorage.EMAIL_USUARIO; // E-mail do usuário guardado no sessionStorage (após login)
+        var nome = sessionStorage.NOME_USUARIO; // Nome do usuário guardado no sessionStorage (após login)
+        var foto = sessionStorage.CAMINHO_FOTO; // Foto do usuário guardado no sessionStorage (após login)
+        var livroFavorito = sessionStorage.LIVRO_FAVORITO; // Livro favorito do usuário guardado no sessionStorage (após login)
 
-        livro.innerHTML = livroFavorito;
+        var livro = document.getElementById("livro_favorito"); // Pega o span o HTML que exibe o livro favorito
+
+        livro.innerHTML = livroFavorito; // Agora o valor do elemento livro é o livro favorito do usuário
 
         console.log(foto);
+
+        // Mesma coisa do livro nos comandos abaixo
         var nome_user = document.getElementById("nome_user");
         var email_user = document.getElementById("email_user");
         var perfil = document.getElementById("img_perfil");
@@ -120,21 +127,21 @@
         }
     }
 
-    function trocar(id, src) {
-        img_perfil.src = src;
-        sessionStorage.CAMINHO_FOTO = src;
-        imagens.style.display = "none";
-        var idFoto = id;
-        var id_user = sessionStorage.ID_USUARIO;
+    function trocar(id, src) { // Função para trocar foto, utiliza o id do elemento e o src (tag img)
+        img_perfil.src = src; // Define que o src da imagem de perfil é o mesmo src da imagem selecionada
+        sessionStorage.CAMINHO_FOTO = src; // Guarda no sessionStorage o caminho da foto selecionada
+        imagens.style.display = "none"; // Após trocar de imagem, oculta a lista de imagens
+        var idFoto = id; // Pega o id da foto selecionada na lista
+        var id_user = sessionStorage.ID_USUARIO; // Pega o id do usuário armazenado em sessionStorage
 
-        fetch("/perfil/trocar", {
+        fetch("/perfil/trocar", { // Rota para inserção no banco...
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                fotoServer: idFoto,
-                idServer: id_user
+                fotoServer: idFoto, // Vou inserir o id da foto
+                idServer: id_user // e preciso do id do usuário
             }),
             })
             .then(function (resposta) {
@@ -147,23 +154,23 @@
             return false;
     }
 
-    function favoritar() {
-        var select_livro = document.getElementById("select_livro");
-        var id_livro = Number(select_livro.value);
-        var id_user = sessionStorage.ID_USUARIO;
+    function favoritar() { // Função para favoritar livro (ou trocar de livro favorito, caso não seja a primeira vez)
+        var select_livro = document.getElementById("select_livro"); // Pega o span do HTML que mostra o livro favorito
+        var id_livro = Number(select_livro.value); // Pega o id do livro escolhido no select
+        var id_user = sessionStorage.ID_USUARIO; // Pega o id do usuário armazenado em sessionStorage
         
-        if (id_livro == 1) {
+        if (id_livro == 1) { // O id 1 é a opção "selecione outro livro"... não é inserida no banco
             console.log("Nenhum livro selecionado");
         } else {
-            livro_favorito.innerHTML = select_livro.options[select_livro.selectedIndex].text;
-            fetch("/favorito/favoritar", {
+            livro_favorito.innerHTML = select_livro.options[select_livro.selectedIndex].text; // Acessa o texto contido na option selecionada
+            fetch("/favorito/favoritar", { // Rota para inserção no banco...
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    livroServer: id_livro,
-                    idServer: id_user
+                    livroServer: id_livro, // Vou inserir o id do livro
+                    idServer: id_user // e preciso do id do usuário
                 }),
                 })
                 .then(function (resposta) {
@@ -173,43 +180,43 @@
                     console.log(`#ERRO: ${resposta}`);
                 });
                 
-                select_livro.value = "1";
+                select_livro.value = "1"; // Depois de favoritar, o valor do select volta para "selecione outro livro"
 
                 return false;
         }
     }
 
-    function editar() {
-        var nome = sessionStorage.NOME_USUARIO;
+    function editar() { // Função para editar o nome do usuário
+        var nome = sessionStorage.NOME_USUARIO; // Pega o nome do usuário armazenado em sessionStorage
         div_edicao.innerHTML = `
         <input id="nome_atual" type="text" value="${nome}">
         <button class="perfil_button" onclick="alterar()">Alterar nome</button> <span class="close" onclick="fechar()">&#9746;</span>
-        `;
-        document.getElementById("nome_atual").focus();
+        `; // Cria um campo de edição em div_edicao. Define um input, com valor inicial igual ao nome do usuário, que pode ser alterado. Ao clicar em Alterar nome, chama a função alterar()
+        document.getElementById("nome_atual").focus(); // Foca no input mencionado para sua alteração
     }
 
-    function fechar() {
-        div_edicao.innerHTML = "";
+    function fechar() { // Função que fecha a aba de editar
+        div_edicao.innerHTML = ""; // Simplesmente esvazia a div de edição
     }
 
-    function alterar() {
-        var nome = nome_atual.value;
+    function alterar() { // Função para alterar nome, chamada dentro de editar()
+        var nome = nome_atual.value; // Pega o valor da input com o novo nome
         
-        sessionStorage.NOME_USUARIO = nome;
-        nome_user.innerHTML = nome;
+        sessionStorage.NOME_USUARIO = nome; // Guarda o novo nome em sessionStorage
+        nome_user.innerHTML = nome; // Troca o valor do nome na tela para o novo nome
         
-        var novoNome = nome;
-        var id_user = sessionStorage.ID_USUARIO;
-        fechar();
+        var novoNome = nome; // Passa o valor do novo nome para outra variável
+        var id_user = sessionStorage.ID_USUARIO; // Pega o id do usuário armazenado em sessionStorage
+        fechar(); // Veja a linha 198
 
-        fetch("/nome/alterar", {
+        fetch("/nome/alterar", { // Rota para inserção no banco...
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                nomeServer: novoNome,
-                idServer: id_user
+                nomeServer: novoNome, // Vou inserir o novo nome do usuário
+                idServer: id_user // e preciso do id do usuário
             }),
             })
             .then(function (resposta) {
