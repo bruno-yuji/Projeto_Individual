@@ -149,7 +149,10 @@
                 }, "2000");
 
                 } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
+                    cardErro.style.display = "block";
+                    cardErro.style.color = "red";
+                    mensagem_erro.innerHTML = "Já existe um usuário cadastrado com este e-mail!";
+                    throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
             .catch(function (resposta) {

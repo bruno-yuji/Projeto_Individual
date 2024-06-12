@@ -373,6 +373,10 @@ body {
     font-size: 1.2rem;
 }
 
+.texto_resenhas u {
+    color: blue;
+}
+
 .livro {
     height: 10rem;
     width: 100%;
