@@ -162,7 +162,9 @@
         if (id_livro == 1) { // O id 1 é a opção "selecione outro livro"... não é inserida no banco
             console.log("Nenhum livro selecionado");
         } else {
-            livro_favorito.innerHTML = select_livro.options[select_livro.selectedIndex].text; // Acessa o texto contido na option selecionada
+            var favorito = select_livro.options[select_livro.selectedIndex].text; // Acessa o texto contido na option selecionada
+            livro_favorito.innerHTML = favorito;
+            sessionStorage.LIVRO_FAVORITO = favorito;
             fetch("/favorito/favoritar", { // Rota para inserção no banco...
                 method: "POST",
                 headers: {
